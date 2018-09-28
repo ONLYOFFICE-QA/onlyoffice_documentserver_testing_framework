@@ -3,7 +3,27 @@ module OnlyofficeDocumentserverTestingFramework
     def initialize(instance)
       @instance = instance
     end
-    
+
+    # @return [Boolean] check if loader present
+    def loading_present?
+      raise "Service Unavailable. There is alert while loading docs: \"#{@instance.webdriver.alert_text}\"" if @instance.webdriver.alert_exists?
+
+      @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
+      loader1 = @instance.selenium.element_visible?('//div[contains(@id,"cmdloadmask")]')
+      loader2 = @instance.selenium.element_visible?('//*[contains(@class,"loadmask")]')
+      loader3 = @instance.selenium.element_visible?('//*[@class="asc-loadmask-body "]')
+      loader4 = @instance.selenium.element_present?('//*[@id="loading-text"]')
+      loader5 = @instance.selenium.element_visible?('//*[@id="loading-mask"]')
+      loader6 = @instance.selenium.element_visible?('//*[@class="modals-mask"]')
+      loader7 = @instance.selenium.element_visible?('//*[@class="asc-loadmask"]')
+      loader8 = @instance.selenium.element_visible?(@xpath_window_modal)
+      loader9 = wait_for_mobile_loading if main_frame_mobile_element_visible?
+      @instance.selenium.select_top_frame
+      loading = loader1 || loader2 || loader3 || loader4 || loader5 || loader6 || loader7 || loader8 || loader9
+      OnlyofficeLoggerHelper.log("Loading Present: #{loading}")
+      loading
+    end
+
     # Wait until loader is present
     # @param timeout [Integer] wait for loading to be present
     def wait_loading_present(timeout = 15)
