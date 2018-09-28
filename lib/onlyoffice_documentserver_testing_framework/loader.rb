@@ -1,5 +1,9 @@
 module OnlyofficeDocumentserverTestingFramework
   class Loader
+    def initialize(instance)
+      @instance = instance
+    end
+    
     # Wait until loader is present
     # @param timeout [Integer] wait for loading to be present
     def wait_loading_present(timeout = 15)
