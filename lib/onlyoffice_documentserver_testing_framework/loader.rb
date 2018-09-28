@@ -112,5 +112,20 @@ module OnlyofficeDocumentserverTestingFramework
       add_error_handler
       result
     end
+
+    # @return [Boolean] check if frame with editor is loaded
+    def frame_loaded?
+      @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
+      loaded = @instance.selenium.element_visible?('//*[@id="viewport"]')
+      @instance.selenium.select_top_frame
+      loaded
+    end
+
+    # @return [Void] wait until iframe have some content
+    def wait_until_frame_loaded
+      @instance.webdriver.wait_until do
+        frame_loaded?
+      end
+    end
   end
 end
