@@ -2,6 +2,8 @@ module OnlyofficeDocumentserverTestingFramework
   class Loader
     def initialize(instance)
       @instance = instance
+      @xpath_iframe_count = 1
+      @xpath_iframe = '//iframe[not(contains(@src, "help")) and not(contains(@id, "fileFrame"))]' # Don't mixup iframe with help
     end
 
     # @return [Boolean] check if loader present
