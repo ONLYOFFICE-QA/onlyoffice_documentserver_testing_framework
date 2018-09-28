@@ -26,6 +26,16 @@ module OnlyofficeDocumentserverTestingFramework
       loading
     end
 
+    def main_frame_mobile_element_visible?
+      @instance.selenium.element_visible?('//*[contains(@class,"framework7-root")]')
+    end
+
+    def wait_for_mobile_loading
+      @instance.selenium.element_visible?('//*[contains(@class,"modal-preloader")]') ||
+          @instance.selenium.element_visible?('//*[contains(@class,"loader-page")]') ||
+          @instance.selenium.get_element('//*[contains(@class,"iScrollVerticalScrollbar")]').nil?
+    end
+
     # Wait until loader is present
     # @param timeout [Integer] wait for loading to be present
     def wait_loading_present(timeout = 15)
