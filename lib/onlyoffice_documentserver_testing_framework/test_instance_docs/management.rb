@@ -161,5 +161,21 @@ module OnlyofficeDocumentserverTestingFramework
       @instance.selenium.execute_javascript('window.jsErrors = [];window.onerror = function(errorMessage) {window.jsErrors[window.jsErrors.length] = errorMessage;}')
       @instance.selenium.select_top_frame
     end
+
+    # @return [Symbol] editor typo of opened document
+    def editor_type
+      @instance.selenium.select_top_frame
+      url = selenium_functions(:get_url)
+      case url
+      when /documenteditor/
+        :document
+      when /spreadsheeteditor/
+        :spreadsheet
+      when /presentationeditor/
+        :presentation
+      else
+        @instance.selenium.webdriver_error "Unknown editor type for url: #{url}"
+      end
+    end
   end
 end
