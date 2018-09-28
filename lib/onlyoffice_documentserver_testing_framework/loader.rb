@@ -1,5 +1,17 @@
 module OnlyofficeDocumentserverTestingFramework
   class Loader
+    # Wait until loader is present
+    # @param timeout [Integer] wait for loading to be present
+    def wait_loading_present(timeout = 15)
+      timer = 0
+      while timer < timeout && !loading_present?
+        sleep 1
+        timer += 1
+        OnlyofficeLoggerHelper.log("Waiting for start loading of documents. Waiting for #{timer} seconds of #{timeout}")
+      end
+      @instance.webdriver.webdriver_error("Waiting for start loading failed for #{timeout} seconds") if timer == timeout
+    end
+
     # Wait for operation with round status in canvas editor
     # @param [Integer] timeout_in_seconds count of seconds to wait
     def wait_for_operation_with_round_status_canvas(timeout_in_seconds = 300, options = {})
