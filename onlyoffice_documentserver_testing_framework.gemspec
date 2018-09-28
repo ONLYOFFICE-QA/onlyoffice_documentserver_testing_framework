@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.email = ['shockwavenn@gmail.com']
   s.files = `git ls-files lib LICENSE.txt README.md`.split($RS)
   s.homepage = 'https://github.com/onlyoffice-testing-robot/onlyoffice_documentserver_testing_framework'
-  s.add_runtime_dependency('onlyoffice_webdriver_wrapper', '0.1')
+  s.add_runtime_dependency('onlyoffice_logger_helper', '~> 1')
+  s.add_runtime_dependency('onlyoffice_webdriver_wrapper', '~> 0')
   s.license = 'AGPL-3.0'
 end
