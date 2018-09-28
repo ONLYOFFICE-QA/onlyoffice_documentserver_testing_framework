@@ -1,5 +1,5 @@
 module OnlyofficeDocumentserverTestingFramework
-# Class for CSV window
+  # Class for CSV window
   class CsvOption < TxtOptions
     include SeleniumWrapper
 

@@ -4,7 +4,7 @@ module OnlyofficeDocumentserverTestingFramework
 
     attr_accessor :xpath_iframe_count
     attr_accessor :xpath_iframe
-    
+
     def initialize(instance)
       @instance = instance
       @xpath_iframe_count = 1
@@ -37,8 +37,8 @@ module OnlyofficeDocumentserverTestingFramework
 
     def wait_for_mobile_loading
       @instance.selenium.element_visible?('//*[contains(@class,"modal-preloader")]') ||
-          @instance.selenium.element_visible?('//*[contains(@class,"loader-page")]') ||
-          @instance.selenium.get_element('//*[contains(@class,"iScrollVerticalScrollbar")]').nil?
+        @instance.selenium.element_visible?('//*[contains(@class,"loader-page")]') ||
+        @instance.selenium.get_element('//*[contains(@class,"iScrollVerticalScrollbar")]').nil?
     end
 
     # Wait until loader is present
@@ -71,7 +71,7 @@ module OnlyofficeDocumentserverTestingFramework
         # Check for error message 2.5 version
         @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
         if @instance.selenium.element_visible?('//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span') &&
-            @instance.selenium.get_style_parameter('//div[contains(@class,"x-message-box")]', 'left').gsub('px', '').to_i > 0
+           @instance.selenium.get_style_parameter('//div[contains(@class,"x-message-box")]', 'left').gsub('px', '').to_i > 0
           @instance.selenium.webdriver_error('Server Error: ' + @instance.selenium.get_text('//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span').tr("\n", ' '))
         end
 

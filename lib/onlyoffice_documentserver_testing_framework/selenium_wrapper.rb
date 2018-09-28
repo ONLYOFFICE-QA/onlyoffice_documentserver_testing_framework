@@ -3,31 +3,31 @@ module OnlyofficeDocumentserverTestingFramework
   module SeleniumWrapper
     def error_ignored?(error_message)
       ignored_errors = %w[https://signalr.teamlab.info/signalr/negotiate
-                        https://signalr.onlyoffice.com/signalr/negotiate
-                        https://www.dropbox.com/
-                        /bundle/
-                        /socketio/
-                        /discbundle/
-                        /Contents.json
-                        branding
-                        favicon.ico
-                        uservoice
-                        js/third-party/jquery/jquery.core.js
-                        js/asc/plugins/
-                        /platform.twitter.com
-                        googleads
-                        pubmatic.com
-                        rubiconproject.com
-                        eventhandler
-                        require.js
-                        chrome-extension
-                        Access-Control-Allow-Origin
-                        SockJS has already been closed
-                        404 (Not Found)
-                        AscFonts
-                        yastatic.net/maps-beta
-                        /embed]
-      ignored_errors.any? {|word| error_message.include?(word)}
+                          https://signalr.onlyoffice.com/signalr/negotiate
+                          https://www.dropbox.com/
+                          /bundle/
+                          /socketio/
+                          /discbundle/
+                          /Contents.json
+                          branding
+                          favicon.ico
+                          uservoice
+                          js/third-party/jquery/jquery.core.js
+                          js/asc/plugins/
+                          /platform.twitter.com
+                          googleads
+                          pubmatic.com
+                          rubiconproject.com
+                          eventhandler
+                          require.js
+                          chrome-extension
+                          Access-Control-Allow-Origin
+                          SockJS has already been closed
+                          404 (Not Found)
+                          AscFonts
+                          yastatic.net/maps-beta
+                          /embed]
+      ignored_errors.any? { |word| error_message.include?(word) }
     end
 
     def selenium_functions(name, *arguments)

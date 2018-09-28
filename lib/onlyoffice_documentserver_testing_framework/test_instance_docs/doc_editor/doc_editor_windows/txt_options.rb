@@ -1,5 +1,5 @@
 module OnlyofficeDocumentserverTestingFramework
-# Class for TXT export window
+  # Class for TXT export window
   class TxtOptions
     include SeleniumWrapper
 
@@ -67,7 +67,7 @@ module OnlyofficeDocumentserverTestingFramework
     def encoding_select(encoding_name)
       encoding.open
       # TODO: Replace with correct include after find out https://github.com/ONLYOFFICE/testing-documentserver/pull/2006
-      list_item_number = encoding.items_text.index {|item| item.include?(encoding_name)} + 1
+      list_item_number = encoding.items_text.index { |item| item.include?(encoding_name) } + 1
       scroll_encoding_list_to list_item_number
       encoding.select_by_number list_item_number
     end
