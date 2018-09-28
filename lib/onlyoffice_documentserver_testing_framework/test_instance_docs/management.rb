@@ -155,5 +155,11 @@ module OnlyofficeDocumentserverTestingFramework
       OnlyofficeLoggerHelper.log("file_not_found_message is shown: #{error_on_loading}")
       error_on_loading
     end
+
+    def add_error_handler
+      @instance.selenium.select_frame @instance.management.xpath_iframe
+      @instance.selenium.execute_javascript('window.jsErrors = [];window.onerror = function(errorMessage) {window.jsErrors[window.jsErrors.length] = errorMessage;}')
+      @instance.selenium.select_top_frame
+    end
   end
 end
