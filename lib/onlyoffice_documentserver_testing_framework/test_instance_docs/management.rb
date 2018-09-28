@@ -1,7 +1,7 @@
 module OnlyofficeDocumentserverTestingFramework
   class Management
     include SeleniumWrapper
-    
+
     attr_accessor :xpath_iframe_count
     attr_accessor :xpath_iframe
     
@@ -139,6 +139,21 @@ module OnlyofficeDocumentserverTestingFramework
       return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") && selenium_functions(:get_style_parameter, alert_xpath, 'left').gsub('px', '').to_i.positive?
 
       "Server Error: #{selenium_functions(:get_text, "#{alert_xpath}/div[2]/div[1]/div[2]/span").tr("\n", ' ')}"
+    end
+
+    def permission_denied_message?
+      @instance.selenium.select_frame
+      error_on_loading = @instance.selenium.element_present?('//div[contains(text(),"You don\'t have enough permission to view the file")]')
+      @instance.selenium.select_top_frame
+      error_on_loading
+    end
+
+    def file_not_found_message?
+      @instance.selenium.select_frame
+      error_on_loading = @instance.selenium.element_visible?('//div[contains(@class, "tooltip-inner") and contains(text(),"The required file was not found")]')
+      @instance.selenium.select_top_frame
+      OnlyofficeLoggerHelper.log("file_not_found_message is shown: #{error_on_loading}")
+      error_on_loading
     end
   end
 end
