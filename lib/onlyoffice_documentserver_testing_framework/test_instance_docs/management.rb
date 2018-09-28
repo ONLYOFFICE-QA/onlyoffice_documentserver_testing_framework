@@ -1,7 +1,7 @@
 module OnlyofficeDocumentserverTestingFramework
   class Management
     attr_accessor :xpath_iframe_count
-    attr_accessor :path_iframe
+    attr_accessor :xpath_iframe
     
     def initialize(instance)
       @instance = instance
