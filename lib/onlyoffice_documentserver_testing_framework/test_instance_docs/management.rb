@@ -1,5 +1,5 @@
 module OnlyofficeDocumentserverTestingFramework
-  class Loader
+  class Management
     def initialize(instance)
       @instance = instance
       @xpath_iframe_count = 1
