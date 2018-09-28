@@ -1,3 +1,5 @@
+require_relative 'spreadsheet_editor/spreadsheet_windows'
+
 module OnlyofficeDocumentserverTestingFramework
 # Class for all Spreadsheet Editor actions
   class SpreadsheetEditor

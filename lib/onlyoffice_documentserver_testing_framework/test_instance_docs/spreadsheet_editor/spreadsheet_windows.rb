@@ -1,3 +1,5 @@
+require_relative 'spreadsheet_windows/csv_option'
+
 module OnlyofficeDocumentserverTestingFramework
 # Windows of Spreadsheet Editor
   class SpreadsheetEditorWindows < EditorWindows
