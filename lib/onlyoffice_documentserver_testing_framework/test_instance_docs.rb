@@ -7,8 +7,8 @@ module OnlyofficeDocumentserverTestingFramework
     attr_accessor :selenium
     alias webdriver selenium
 
-    def initialize(instance)
-      @instance = instance
+    def initialize(webdriver: nil)
+      @selenium = webdriver
     end
 
     def doc_editor
