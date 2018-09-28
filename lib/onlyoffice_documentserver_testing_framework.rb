@@ -1,2 +1,3 @@
 require_relative 'onlyoffice_documentserver_testing_framework/loader'
+require_relative 'onlyoffice_documentserver_testing_framework/test_instance_docs'
 require_relative 'onlyoffice_documentserver_testing_framework/version'
