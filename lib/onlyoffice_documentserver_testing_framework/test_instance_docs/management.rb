@@ -1,5 +1,7 @@
 module OnlyofficeDocumentserverTestingFramework
   class Management
+    include SeleniumWrapper
+    
     attr_accessor :xpath_iframe_count
     attr_accessor :xpath_iframe
     
