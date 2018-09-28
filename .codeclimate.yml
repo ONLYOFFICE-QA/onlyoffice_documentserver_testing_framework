@@ -1,0 +1,17 @@
+version: "2"
+plugins:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: true
+  rubocop:
+    enabled: true
+  reek:
+    enabled: true
+  shellcheck:
+    enabled: true

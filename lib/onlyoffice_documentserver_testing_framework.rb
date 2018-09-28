@@ -1,0 +1,1 @@
+require_relative 'onlyoffice_documentserver_testing_framework/version'
