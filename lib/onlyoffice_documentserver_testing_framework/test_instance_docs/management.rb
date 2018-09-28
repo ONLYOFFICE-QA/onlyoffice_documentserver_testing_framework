@@ -130,5 +130,13 @@ module OnlyofficeDocumentserverTestingFramework
         frame_loaded?
       end
     end
+
+    # Check for error message 3.0 version
+    def get_error_message_alert
+      alert_xpath = "//div[contains(@class,'asc-window modal alert')]"
+      return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") && selenium_functions(:get_style_parameter, alert_xpath, 'left').gsub('px', '').to_i.positive?
+
+      "Server Error: #{selenium_functions(:get_text, "#{alert_xpath}/div[2]/div[1]/div[2]/span").tr("\n", ' ')}"
+    end
   end
 end
