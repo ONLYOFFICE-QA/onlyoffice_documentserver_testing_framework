@@ -7,6 +7,10 @@ rvm:
   - ruby-head
   - 2.5.1
 
+matrix:
+  allow_failures:
+  - rvm: ruby-head
+
 before_install:
   - gem update --system
   - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
