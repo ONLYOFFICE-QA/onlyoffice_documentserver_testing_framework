@@ -12,10 +12,12 @@ before_install:
   - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome.deb
   - rm google-chrome.deb
+
 install:
   - bundle install --without development
   - docker run -itd -p 80:80 --name documentserver onlyoffice/documentserver-ie:latest
   - sleep 60
   - docker exec -it documentserver supervisorctl start all
+
 script:
   - bundle exec rake spec
