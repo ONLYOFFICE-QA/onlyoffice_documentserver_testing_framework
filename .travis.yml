@@ -1,14 +1,27 @@
 language: ruby
 
+services:
+  - docker
+
 rvm:
   - ruby-head
   - 2.5.1
-  - 2.4.4
-  - 2.3.7
-  - 2.2.10
-  - 2.1.10
+
+matrix:
+  allow_failures:
+  - rvm: ruby-head
 
 before_install:
   - gem update --system
+  - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome.deb
+  - rm google-chrome.deb
+
 install:
   - bundle install --without development
+  - docker run -itd -p 80:80 --name documentserver onlyoffice/documentserver-ie:latest
+  - sleep 60
+  - docker exec -it documentserver supervisorctl start all
+
+script:
+  - bundle exec rake spec
