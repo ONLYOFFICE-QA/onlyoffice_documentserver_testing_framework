@@ -5,4 +5,4 @@ if ENV['CI'] == 'true'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
-require_relative '../../lib/onlyoffice_documentserver_testing_framework'
+require_relative '../lib/onlyoffice_documentserver_testing_framework'
