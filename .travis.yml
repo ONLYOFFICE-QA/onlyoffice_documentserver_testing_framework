@@ -22,4 +22,5 @@ install:
   - docker run -itd -p 80:80 --name documentserver onlyoffice/documentserver-ie:latest
   - sleep 60
   - docker exec -it documentserver supervisorctl start all
-  - rspec spec
+script:
+  - bundle exec rake spec
