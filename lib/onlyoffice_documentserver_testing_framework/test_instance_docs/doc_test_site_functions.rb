@@ -179,7 +179,7 @@ class DocTestSiteFunctions
 
   # Perform creating sample document
   # @return [String] result of opening
-  def open_sample_document(format = :document)
+  def open_sample_document(format = :document, wait_to_load: true)
     case format
     when :document
       @instance.selenium.click_on_locator('//*[contains(@class, "try-editor document")]')
@@ -190,6 +190,8 @@ class DocTestSiteFunctions
     else
       @instance.webdriver.webdriver_error("Unknown file type for open_sample_document(#{format})")
     end
+    return unless wait_to_load
+
     @instance.selenium.close_tab
     @instance.selenium.switch_to_main_tab
     @instance.management.wait_for_operation_with_round_status_canvas

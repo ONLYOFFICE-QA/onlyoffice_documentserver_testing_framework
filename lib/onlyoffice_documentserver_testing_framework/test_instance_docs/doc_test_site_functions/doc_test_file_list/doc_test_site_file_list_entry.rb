@@ -7,6 +7,8 @@ class DocTestSiteFileListEntry
   attr_accessor :review_mode_url
   # @return [String] Comment mode url
   attr_accessor :comment_mode_url
+  # @return [String] Fill forms mode url
+  attr_reader :fill_forms_mode_url
   # @return [String] View mode url
   attr_accessor :view_mode_url
 
@@ -17,6 +19,7 @@ class DocTestSiteFileListEntry
     @embedded_url = fetch_embedded_url
     @review_mode_url = fetch_review_mode_url
     @comment_mode_url = fetch_comment_mode_url
+    @fill_forms_mode_url = fetch_fill_forms_mode_url
     @view_mode_url = fetch_view_mode_url
   end
 
@@ -48,6 +51,16 @@ class DocTestSiteFileListEntry
 
     url = @instance.selenium.get_attribute(xpath_comment, 'href')
     OnlyofficeLoggerHelper.log("Got comment mode #{@xpath_line} url: #{url}")
+    url
+  end
+
+  # @return [String] url on fill forms mode
+  def fetch_fill_forms_mode_url
+    xpath_comment = "#{@xpath_line}/td[6]/a"
+    return nil unless @instance.selenium.element_present?(xpath_comment)
+
+    url = @instance.selenium.get_attribute(xpath_comment, 'href')
+    OnlyofficeLoggerHelper.log("Got fill forms mode #{@xpath_line} url: #{url}")
     url
   end
 
