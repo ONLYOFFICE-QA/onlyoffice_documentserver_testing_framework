@@ -122,7 +122,8 @@ module OnlyofficeDocumentserverTestingFramework
     # @return [Boolean] check if frame with editor is loaded
     def frame_loaded?
       @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
-      loaded = @instance.selenium.element_visible?('//*[@id="viewport"]')
+      loaded = @instance.selenium.element_visible?('//*[@id="viewport"]') ||
+               @instance.selenium.element_visible?('//*[@id="editor_sdk"]')
       @instance.selenium.select_top_frame
       loaded
     end
