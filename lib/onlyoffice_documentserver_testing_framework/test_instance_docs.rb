@@ -20,7 +20,9 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def doc_test_functions
-      @doc_test_functions ||= DocTestSiteFunctions.new(self)
+      # Do not cache methods since they use PageObject and cause all sort of troubles
+      # if test run several times with different webdriver
+      DocTestSiteFunctions.new(self)
     end
 
     def doc_editor
