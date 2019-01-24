@@ -37,8 +37,8 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def select_frame
-      count_of_frame = instance_variable_defined?(:@count_of_frame) ? @count_of_frame + @instance.management.xpath_iframe_count - 1 : @instance.management.xpath_iframe_count
-      xpath_of_frame = instance_variable_defined?(:@xpath_of_frame) ? @xpath_of_frame : @instance.management.xpath_iframe
+      count_of_frame = @count_of_frame ? (@count_of_frame + @instance.management.xpath_iframe_count - 1) : @instance.management.xpath_iframe_count
+      xpath_of_frame = @xpath_of_frame || @instance.management.xpath_iframe
       @instance.selenium.select_frame xpath_of_frame, count_of_frame
       value = yield
       fail_if_console_error
