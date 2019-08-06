@@ -5,7 +5,7 @@ module OnlyofficeDocumentserverTestingFramework
 
     def initialize(instance)
       @instance = instance
-      @xpath_codepage_selector = '//span[contains(text(), "TXT")]/../..//div[@id="id-codepages-combo"]'
+      @xpath_codepage_selector = '//*[contains(text(), "TXT")]/../..//div[@id="id-codepages-combo"]'
     end
 
     # region CVN Framework
