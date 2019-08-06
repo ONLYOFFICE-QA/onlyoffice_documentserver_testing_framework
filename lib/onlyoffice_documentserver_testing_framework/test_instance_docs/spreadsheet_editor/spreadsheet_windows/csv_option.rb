@@ -5,7 +5,7 @@ module OnlyofficeDocumentserverTestingFramework
 
     def initialize(instance)
       @instance = instance
-      @xpath_codepage_selector = '//span[contains(text(), "CSV")]/../..//div[@id="id-codepages-combo"]'
+      @xpath_codepage_selector = '//*[contains(text(), "CSV")]/../..//div[@id="id-codepages-combo"]'
     end
 
     DELIMITER_TYPE = %i[comma semicolon colon tab space other].freeze
