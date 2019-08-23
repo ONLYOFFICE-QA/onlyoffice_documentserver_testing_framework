@@ -26,6 +26,7 @@ module OnlyofficeDocumentserverTestingFramework
                           404 (Not Found)
                           AscFonts
                           yastatic.net/maps-beta
+                          sdkjs-plugins/youtube/index.html?lang=en-US - Blocked autofocusing on a form control in a cross-origin subframe.
                           /embed]
       ignored_errors.any? { |word| error_message.include?(word) }
     end
