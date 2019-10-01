@@ -9,6 +9,8 @@ class DocTestSiteFileListEntry
   attr_accessor :comment_mode_url
   # @return [String] Fill forms mode url
   attr_reader :fill_forms_mode_url
+  # @return [String] Only fill forms mode url
+  attr_reader :only_fill_forms_mode_url
   # @return [String] View mode url
   attr_accessor :view_mode_url
 
@@ -64,9 +66,19 @@ class DocTestSiteFileListEntry
     url
   end
 
+  # @return [String] url on fill forms mode
+  def fetch_only_fill_forms_mode_url
+    link_xpath = "#{@xpath_line}/td[7]/a"
+    return nil unless @instance.selenium.element_present?(link_xpath)
+
+    url = @instance.selenium.get_attribute(link_xpath, 'href')
+    OnlyofficeLoggerHelper.log("Got only fill forms mode #{@xpath_line} url: #{url}")
+    url
+  end
+
   # @return [String] url on viewer mode
   def fetch_view_mode_url
-    xpath_comments = "#{@xpath_line}/td[7]/a"
+    xpath_comments = "#{@xpath_line}/td[8]/a"
     return nil unless @instance.selenium.element_present?(xpath_comments)
 
     url = @instance.selenium.get_attribute(xpath_comments, 'href')
@@ -76,7 +88,7 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on embedded file
   def fetch_embedded_url
-    url = @instance.selenium.get_attribute("#{@xpath_line}/td[9]/a", 'href')
+    url = @instance.selenium.get_attribute("#{@xpath_line}/td[10]/a", 'href')
     OnlyofficeLoggerHelper.log("Got embedded #{@xpath_line} url: #{url}")
     url
   end
