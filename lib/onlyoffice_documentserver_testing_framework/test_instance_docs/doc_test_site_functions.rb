@@ -6,8 +6,28 @@ class DocTestSiteFunctions
   extend DocTestSiteServerHelper
   include PageObject
 
-  # @return [Array, String] list of supported languages
-  SUPPORTED_LANGUAGES = %w[English Deutsch Espanol Francais Italiano Portuguese Русский Slovenian].freeze
+  # @return [Array<String>] list of supported languages
+  SUPPORTED_LANGUAGES = %w[English
+                           Bulgarian
+                           Chinese
+                           Czech
+                           Dutch
+                           French
+                           German
+                           Hungarian
+                           Italian
+                           Japanese
+                           Korean
+                           Latvian
+                           Polish
+                           Portuguese
+                           Russian
+                           Slovak
+                           Slovenian
+                           Spanish
+                           Turkish
+                           Ukrainian
+                           Vietnamese].freeze
   select_list(:user_list, xpath: '//*[@id="user"]')
   select_list(:language_list, xpath: '//*[@id="language"]')
 
