@@ -158,8 +158,9 @@ module OnlyofficeDocumentserverTestingFramework
     deprecate :get_error_message_alert, :error_message_alert, 2025, 1
 
     def permission_denied_message?
+      denied_xpath = '//div[contains(text(),"You don\'t have enough permission to view the file")]'
       @instance.selenium.select_frame
-      error_on_loading = @instance.selenium.element_present?('//div[contains(text(),"You don\'t have enough permission to view the file")]')
+      error_on_loading = @instance.selenium.element_present?(denied_xpath)
       @instance.selenium.select_top_frame
       error_on_loading
     end
