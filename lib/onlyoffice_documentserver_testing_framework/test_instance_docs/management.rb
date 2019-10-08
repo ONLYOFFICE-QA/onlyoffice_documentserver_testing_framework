@@ -143,7 +143,9 @@ module OnlyofficeDocumentserverTestingFramework
     # Check for error message 3.0 version
     def error_message_alert
       alert_xpath = "//div[contains(@class,'asc-window modal alert')]"
-      return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") && selenium_functions(:get_style_parameter, alert_xpath, 'left').gsub('px', '').to_i.positive?
+      return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") &&
+                    selenium_functions(:get_style_parameter, alert_xpath, 'left')
+                    .gsub('px', '').to_i.positive?
 
       "Server Error: #{selenium_functions(:get_text, "#{alert_xpath}/div[2]/div[1]/div[2]/span").tr("\n", ' ')}"
     end
@@ -168,8 +170,11 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def add_error_handler
+      js_handler = 'window.jsErrors = [];'\
+                   'window.onerror = function(errorMessage) '\
+                   '{window.jsErrors[window.jsErrors.length] = errorMessage;}'
       @instance.selenium.select_frame @instance.management.xpath_iframe
-      @instance.selenium.execute_javascript('window.jsErrors = [];window.onerror = function(errorMessage) {window.jsErrors[window.jsErrors.length] = errorMessage;}')
+      @instance.selenium.execute_javascript(js_handler)
       @instance.selenium.select_top_frame
     end
 
