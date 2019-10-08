@@ -9,6 +9,7 @@ require_relative 'test_instance_docs/spreadsheet_editor'
 require_relative 'test_instance_docs/management'
 
 module OnlyofficeDocumentserverTestingFramework
+  # Main class for browser instance
   class TestInstanceDocs
     attr_accessor :selenium
     alias webdriver selenium

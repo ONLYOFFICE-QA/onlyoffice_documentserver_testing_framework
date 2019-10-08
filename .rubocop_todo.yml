@@ -48,15 +48,6 @@ Naming/AccessorMethodName:
     - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/management.rb'
     - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/spreadsheet_editor/spreadsheet_windows/csv_option.rb'
 
-# Offense count: 3
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/onlyoffice_documentserver_testing_framework/selenium_wrapper.rb'
-    - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs.rb'
-    - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/management.rb'
-
 # Offense count: 75
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

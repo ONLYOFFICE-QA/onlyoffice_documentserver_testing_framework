@@ -2,6 +2,7 @@
 
 require_relative 'selenium_wrapper/selenium_wrapper_exceptions'
 module OnlyofficeDocumentserverTestingFramework
+  # Module for handle selenium with frames and some other methods
   module SeleniumWrapper
     def error_ignored?(error_message)
       ignored_errors = %w[https://signalr.teamlab.info/signalr/negotiate

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module OnlyofficeDocumentserverTestingFramework
+  # Class for management main methods
   class Management
     include SeleniumWrapper
 
