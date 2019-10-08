@@ -64,7 +64,10 @@ module OnlyofficeDocumentserverTestingFramework
 
     def fail_if_console_error
       errors = get_console_errors
-      @instance.webdriver.webdriver_error(Selenium::WebDriver::Error::JavascriptError, "There are some errors in the Web Console: #{errors}") unless errors.empty?
+      return if errors.empty?
+
+      @instance.webdriver.webdriver_error(Selenium::WebDriver::Error::JavascriptError,
+                                          "There are some errors in the Web Console: #{errors}")
     end
 
     # This method return true if xpath visible on the web page

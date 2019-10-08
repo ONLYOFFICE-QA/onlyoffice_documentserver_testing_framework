@@ -74,9 +74,11 @@ module OnlyofficeDocumentserverTestingFramework
 
         # Check for error message 2.5 version
         @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
-        if @instance.selenium.element_visible?('//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span') &&
+        error_box_xpath = '//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span'
+        if @instance.selenium.element_visible?(error_box_xpath) &&
            @instance.selenium.get_style_parameter('//div[contains(@class,"x-message-box")]', 'left').gsub('px', '').to_i.positive?
-          @instance.selenium.webdriver_error('Server Error: ' + @instance.selenium.get_text('//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span').tr("\n", ' '))
+          error_text = @instance.selenium.get_text(error_box_xpath).tr("\n", ' ')
+          @instance.selenium.webdriver_error("Server Error: #{error_text}")
         end
 
         @instance.selenium.select_top_frame
