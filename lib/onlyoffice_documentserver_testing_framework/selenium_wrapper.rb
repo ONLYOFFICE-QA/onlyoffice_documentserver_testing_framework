@@ -41,13 +41,18 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def select_frame
-      count_of_frame = @count_of_frame ? (@count_of_frame + @instance.management.xpath_iframe_count - 1) : @instance.management.xpath_iframe_count
+      count_of_frame = @count_of_frame ? frame_count_addition : @instance.management.xpath_iframe_count
       xpath_of_frame = @xpath_of_frame || @instance.management.xpath_iframe
       @instance.selenium.select_frame xpath_of_frame, count_of_frame
       value = yield
       fail_if_console_error
       @instance.selenium.select_top_frame
       value
+    end
+
+    # @return [Integer] frame count with addition
+    def frame_count_addition
+      @count_of_frame + @instance.management.xpath_iframe_count - 1
     end
 
     def console_errors

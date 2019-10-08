@@ -16,7 +16,10 @@ module OnlyofficeDocumentserverTestingFramework
 
     # @return [Boolean] check if loader present
     def loading_present?
-      raise "Service Unavailable. There is alert while loading docs: \"#{@instance.webdriver.alert_text}\"" if @instance.webdriver.alert_exists?
+      if @instance.webdriver.alert_exists?
+        raise 'Service Unavailable. There is alert while loading docs: '\
+              "\"#{@instance.webdriver.alert_text}\""
+      end
 
       @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
       mobile_loader = false
@@ -162,8 +165,9 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def file_not_found_message?
+      message_xpath = '//div[contains(@class, "tooltip-inner") and contains(text(),"The required file was not found")]'
       @instance.selenium.select_frame
-      error_on_loading = @instance.selenium.element_visible?('//div[contains(@class, "tooltip-inner") and contains(text(),"The required file was not found")]')
+      error_on_loading = @instance.selenium.element_visible?(message_xpath)
       @instance.selenium.select_top_frame
       OnlyofficeLoggerHelper.log("file_not_found_message is shown: #{error_on_loading}")
       error_on_loading
