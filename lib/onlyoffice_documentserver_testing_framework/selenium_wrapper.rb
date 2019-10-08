@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'selenium_wrapper/selenium_wrapper_exceptions'
 module OnlyofficeDocumentserverTestingFramework
+  # Module for handle selenium with frames and some other methods
   module SeleniumWrapper
     def error_ignored?(error_message)
       ignored_errors = %w[https://signalr.teamlab.info/signalr/negotiate
@@ -38,7 +41,7 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def select_frame
-      count_of_frame = @count_of_frame ? (@count_of_frame + @instance.management.xpath_iframe_count - 1) : @instance.management.xpath_iframe_count
+      count_of_frame = @count_of_frame ? frame_count_addition : @instance.management.xpath_iframe_count
       xpath_of_frame = @xpath_of_frame || @instance.management.xpath_iframe
       @instance.selenium.select_frame xpath_of_frame, count_of_frame
       value = yield
@@ -47,7 +50,12 @@ module OnlyofficeDocumentserverTestingFramework
       value
     end
 
-    def get_console_errors
+    # @return [Integer] frame count with addition
+    def frame_count_addition
+      @count_of_frame + @instance.management.xpath_iframe_count - 1
+    end
+
+    def console_errors
       severe_error = []
       @instance.webdriver.browser_logs.each do |log|
         severe_error << log.message if log.level.include?('SEVERE') && !error_ignored?(log.message)
@@ -55,9 +63,16 @@ module OnlyofficeDocumentserverTestingFramework
       severe_error
     end
 
+    alias get_console_errors console_errors
+    extend Gem::Deprecate
+    deprecate :get_console_errors, :console_errors, 2025, 1
+
     def fail_if_console_error
       errors = get_console_errors
-      @instance.webdriver.webdriver_error(Selenium::WebDriver::Error::JavascriptError, "There are some errors in the Web Console: #{errors}") unless errors.empty?
+      return if errors.empty?
+
+      @instance.webdriver.webdriver_error(Selenium::WebDriver::Error::JavascriptError,
+                                          "There are some errors in the Web Console: #{errors}")
     end
 
     # This method return true if xpath visible on the web page

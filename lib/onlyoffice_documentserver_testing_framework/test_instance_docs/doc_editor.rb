@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'doc_editor/doc_editor_windows'
 
 module OnlyofficeDocumentserverTestingFramework

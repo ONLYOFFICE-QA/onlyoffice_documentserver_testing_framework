@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Helper method to fetch server url
 module DocTestSiteServerHelper
   # @return [String] url of docserver

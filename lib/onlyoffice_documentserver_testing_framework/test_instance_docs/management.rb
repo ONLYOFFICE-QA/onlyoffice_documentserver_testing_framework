@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module OnlyofficeDocumentserverTestingFramework
+  # Class for management main methods
   class Management
     include SeleniumWrapper
 
@@ -13,7 +16,10 @@ module OnlyofficeDocumentserverTestingFramework
 
     # @return [Boolean] check if loader present
     def loading_present?
-      raise "Service Unavailable. There is alert while loading docs: \"#{@instance.webdriver.alert_text}\"" if @instance.webdriver.alert_exists?
+      if @instance.webdriver.alert_exists?
+        raise 'Service Unavailable. There is alert while loading docs: '\
+              "\"#{@instance.webdriver.alert_text}\""
+      end
 
       @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
       mobile_loader = false
@@ -71,9 +77,11 @@ module OnlyofficeDocumentserverTestingFramework
 
         # Check for error message 2.5 version
         @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
-        if @instance.selenium.element_visible?('//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span') &&
-           @instance.selenium.get_style_parameter('//div[contains(@class,"x-message-box")]', 'left').gsub('px', '').to_i > 0
-          @instance.selenium.webdriver_error('Server Error: ' + @instance.selenium.get_text('//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span').tr("\n", ' '))
+        error_box_xpath = '//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span'
+        if @instance.selenium.element_visible?(error_box_xpath) &&
+           @instance.selenium.get_style_parameter('//div[contains(@class,"x-message-box")]', 'left').gsub('px', '').to_i.positive?
+          error_text = @instance.selenium.get_text(error_box_xpath).tr("\n", ' ')
+          @instance.selenium.webdriver_error("Server Error: #{error_text}")
         end
 
         @instance.selenium.select_top_frame
@@ -103,7 +111,7 @@ module OnlyofficeDocumentserverTestingFramework
         result = 'Server Alert: ' + @instance.selenium.get_text('//div[@role="alertdialog"]/div/div/div/span').tr("\n", ' ')
         if result.include?('charts and images will be lost')
           style_left = @instance.selenium.get_style_parameter('//div[@role="alertdialog"]', 'left').gsub!('px', '').to_i
-          result = true if style_left < 0
+          result = true if style_left.negative?
         end
         @instance.selenium.select_top_frame
         return result
@@ -136,31 +144,42 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     # Check for error message 3.0 version
-    def get_error_message_alert
+    def error_message_alert
       alert_xpath = "//div[contains(@class,'asc-window modal alert')]"
-      return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") && selenium_functions(:get_style_parameter, alert_xpath, 'left').gsub('px', '').to_i.positive?
+      return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") &&
+                    selenium_functions(:get_style_parameter, alert_xpath, 'left')
+                    .gsub('px', '').to_i.positive?
 
       "Server Error: #{selenium_functions(:get_text, "#{alert_xpath}/div[2]/div[1]/div[2]/span").tr("\n", ' ')}"
     end
 
+    alias get_error_message_alert error_message_alert
+    extend Gem::Deprecate
+    deprecate :get_error_message_alert, :error_message_alert, 2025, 1
+
     def permission_denied_message?
+      denied_xpath = '//div[contains(text(),"You don\'t have enough permission to view the file")]'
       @instance.selenium.select_frame
-      error_on_loading = @instance.selenium.element_present?('//div[contains(text(),"You don\'t have enough permission to view the file")]')
+      error_on_loading = @instance.selenium.element_present?(denied_xpath)
       @instance.selenium.select_top_frame
       error_on_loading
     end
 
     def file_not_found_message?
+      message_xpath = '//div[contains(@class, "tooltip-inner") and contains(text(),"The required file was not found")]'
       @instance.selenium.select_frame
-      error_on_loading = @instance.selenium.element_visible?('//div[contains(@class, "tooltip-inner") and contains(text(),"The required file was not found")]')
+      error_on_loading = @instance.selenium.element_visible?(message_xpath)
       @instance.selenium.select_top_frame
       OnlyofficeLoggerHelper.log("file_not_found_message is shown: #{error_on_loading}")
       error_on_loading
     end
 
     def add_error_handler
+      js_handler = 'window.jsErrors = [];'\
+                   'window.onerror = function(errorMessage) '\
+                   '{window.jsErrors[window.jsErrors.length] = errorMessage;}'
       @instance.selenium.select_frame @instance.management.xpath_iframe
-      @instance.selenium.execute_javascript('window.jsErrors = [];window.onerror = function(errorMessage) {window.jsErrors[window.jsErrors.length] = errorMessage;}')
+      @instance.selenium.execute_javascript(js_handler)
       @instance.selenium.select_top_frame
     end
 

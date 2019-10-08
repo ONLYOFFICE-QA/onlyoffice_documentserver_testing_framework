@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'doc_test_site_functions/healthcheck_page'
 require_relative 'doc_test_site_functions/doc_test_file_list'
 require_relative 'doc_test_site_functions/doc_test_site_server_helper'
@@ -80,7 +82,10 @@ class DocTestSiteFunctions
   def check_error
     error_message = @instance.selenium.get_text('//*[@class="error-message"]/span', false)
 
-    @instance.selenium.webdriver_error("Error while uploading document. Error message: #{error_message}") unless error_message.empty?
+    return if error_message.empty?
+
+    @instance.selenium.webdriver_error('Error while uploading document. '\
+                                       "Error message: #{error_message}")
   end
 
   # Waits until file converts

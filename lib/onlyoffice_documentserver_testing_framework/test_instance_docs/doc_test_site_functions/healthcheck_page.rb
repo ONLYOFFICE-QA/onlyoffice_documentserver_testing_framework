@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Page for describing healthcheck page
 class HealthcheckPage
   def initialize(instance)

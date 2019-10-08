@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'onlyoffice_webdriver_wrapper'
 require_relative 'test_instance_docs/common_editor/editor_windows'
 require_relative 'test_instance_docs/doc_editor'
@@ -7,6 +9,7 @@ require_relative 'test_instance_docs/spreadsheet_editor'
 require_relative 'test_instance_docs/management'
 
 module OnlyofficeDocumentserverTestingFramework
+  # Main class for browser instance
   class TestInstanceDocs
     attr_accessor :selenium
     alias webdriver selenium
