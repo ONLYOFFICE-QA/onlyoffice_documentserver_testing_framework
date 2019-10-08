@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 $LOAD_PATH.unshift File.expand_path('lib', __dir__)
 require 'onlyoffice_documentserver_testing_framework/version'
 Gem::Specification.new do |s|

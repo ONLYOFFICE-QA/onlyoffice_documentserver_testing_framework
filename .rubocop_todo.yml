@@ -57,13 +57,6 @@ Style/Documentation:
     - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs.rb'
     - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/management.rb'
 
-# Offense count: 26
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, never
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 # Offense count: 75
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

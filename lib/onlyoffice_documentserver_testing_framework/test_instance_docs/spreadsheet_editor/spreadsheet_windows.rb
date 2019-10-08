@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'spreadsheet_windows/csv_option'
 
 module OnlyofficeDocumentserverTestingFramework

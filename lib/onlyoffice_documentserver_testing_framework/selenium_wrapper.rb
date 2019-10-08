@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'selenium_wrapper/selenium_wrapper_exceptions'
 module OnlyofficeDocumentserverTestingFramework
   module SeleniumWrapper

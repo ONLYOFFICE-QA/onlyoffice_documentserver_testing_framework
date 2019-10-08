@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'doc_test_site_functions/healthcheck_page'
 require_relative 'doc_test_site_functions/doc_test_file_list'
 require_relative 'doc_test_site_functions/doc_test_site_server_helper'

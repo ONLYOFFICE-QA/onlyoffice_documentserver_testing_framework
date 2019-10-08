@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class for describing Welcome page of test example
 # https://cloud.githubusercontent.com/assets/668524/15577518/891848c8-2365-11e6-8a2a-af98618067b5.png
 class DocServiceWelcome

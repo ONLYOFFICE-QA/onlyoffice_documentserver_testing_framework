@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'onlyoffice_webdriver_wrapper'
 require_relative 'test_instance_docs/common_editor/editor_windows'
 require_relative 'test_instance_docs/doc_editor'

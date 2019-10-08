@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficeDocumentserverTestingFramework
   # Class for TXT export window
   class TxtOptions

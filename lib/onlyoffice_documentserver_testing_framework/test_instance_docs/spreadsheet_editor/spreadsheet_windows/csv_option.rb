@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficeDocumentserverTestingFramework
   # Class for CSV window
   class CsvOption < TxtOptions
