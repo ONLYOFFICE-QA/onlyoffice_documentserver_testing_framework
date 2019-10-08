@@ -50,13 +50,17 @@ module OnlyofficeDocumentserverTestingFramework
       value
     end
 
-    def get_console_errors
+    def console_errors
       severe_error = []
       @instance.webdriver.browser_logs.each do |log|
         severe_error << log.message if log.level.include?('SEVERE') && !error_ignored?(log.message)
       end
       severe_error
     end
+
+    alias get_console_errors console_errors
+    extend Gem::Deprecate
+    deprecate :get_console_errors, :console_errors, 2025, 1
 
     def fail_if_console_error
       errors = get_console_errors

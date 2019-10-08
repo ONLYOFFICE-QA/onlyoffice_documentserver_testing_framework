@@ -139,12 +139,16 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     # Check for error message 3.0 version
-    def get_error_message_alert
+    def error_message_alert
       alert_xpath = "//div[contains(@class,'asc-window modal alert')]"
       return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") && selenium_functions(:get_style_parameter, alert_xpath, 'left').gsub('px', '').to_i.positive?
 
       "Server Error: #{selenium_functions(:get_text, "#{alert_xpath}/div[2]/div[1]/div[2]/span").tr("\n", ' ')}"
     end
+
+    alias get_error_message_alert error_message_alert
+    extend Gem::Deprecate
+    deprecate :get_error_message_alert, :error_message_alert, 2025, 1
 
     def permission_denied_message?
       @instance.selenium.select_frame

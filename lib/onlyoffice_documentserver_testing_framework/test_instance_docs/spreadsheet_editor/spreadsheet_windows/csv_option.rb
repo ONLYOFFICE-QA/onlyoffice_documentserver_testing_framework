@@ -36,7 +36,7 @@ module OnlyofficeDocumentserverTestingFramework
       end
     end
 
-    def set_csv_options(options = {})
+    def csv_options=(options = {})
       options[:encoding_to_set] ||= 'Unicode (UTF-8)'
       options[:csv_delimiter] ||= :comma
       return unless dialog_window_opened?
@@ -45,6 +45,10 @@ module OnlyofficeDocumentserverTestingFramework
       delimiter_select options[:csv_delimiter]
       click_on_ok
     end
+
+    alias set_csv_options csv_options=
+    extend Gem::Deprecate
+    deprecate :set_csv_options, :csv_options=, 2025, 1
     # endregion
   end
 end

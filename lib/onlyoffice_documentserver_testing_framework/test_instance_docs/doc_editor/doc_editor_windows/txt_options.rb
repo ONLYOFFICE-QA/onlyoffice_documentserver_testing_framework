@@ -74,13 +74,17 @@ module OnlyofficeDocumentserverTestingFramework
       encoding.select_by_number list_item_number
     end
 
-    def set_txt_options(encoding_to_set = 'Unicode (UTF-8)')
+    def txt_options=(encoding_to_set = 'Unicode (UTF-8)')
       return unless dialog_window_opened?
 
       encoding_to_set = encoding.items_text.last if encoding_to_set.nil?
       encoding_select encoding_to_set
       click_on_ok
     end
+
+    alias set_txt_options txt_options=
+    extend Gem::Deprecate
+    deprecate :set_txt_options, :txt_options=, 2025, 1
 
     def close_warning_loose_data
       click_on_ok if loose_data_warning_present?
