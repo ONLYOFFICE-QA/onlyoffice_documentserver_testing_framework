@@ -19,4 +19,8 @@ describe 'Management' do
     instance.management.wait_for_operation_with_round_status_canvas
     expect(instance.management.console_errors).to be_empty
   end
+
+  it 'ignored_errors not to be empty' do
+    expect(instance.management.ignored_errors).not_to be_empty
+  end
 end

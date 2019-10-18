@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
 require_relative 'selenium_wrapper/selenium_wrapper_exceptions'
+require_relative 'selenium_wrapper/selenium_wrapper_js_errors'
 module OnlyofficeDocumentserverTestingFramework
   # Module for handle selenium with frames and some other methods
   module SeleniumWrapper
-    def error_ignored?(error_message)
-      ignored_errors = File.readlines("#{Dir.pwd}/lib/onlyoffice_documentserver_testing_framework/selenium_wrapper/ingored_errors.list")
-                           .map(&:strip)
-      ignored_errors.any? { |word| error_message.include?(word) }
-    end
+    include SeleniumWrapperJsErrors
 
     def selenium_functions(name, *arguments)
       select_frame do
@@ -29,26 +26,6 @@ module OnlyofficeDocumentserverTestingFramework
     # @return [Integer] frame count with addition
     def frame_count_addition
       @count_of_frame + @instance.management.xpath_iframe_count - 1
-    end
-
-    def console_errors
-      severe_error = []
-      @instance.webdriver.browser_logs.each do |log|
-        severe_error << log.message if log.level.include?('SEVERE') && !error_ignored?(log.message)
-      end
-      severe_error
-    end
-
-    alias get_console_errors console_errors
-    extend Gem::Deprecate
-    deprecate :get_console_errors, :console_errors, 2025, 1
-
-    def fail_if_console_error
-      errors = get_console_errors
-      return if errors.empty?
-
-      @instance.webdriver.webdriver_error(Selenium::WebDriver::Error::JavascriptError,
-                                          "There are some errors in the Web Console: #{errors}")
     end
 
     # This method return true if xpath visible on the web page
