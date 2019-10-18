@@ -5,7 +5,8 @@ services:
 
 rvm:
   - ruby-head
-  - 2.5.1
+  - 2.6
+  - 2.5
 
 matrix:
   allow_failures:
