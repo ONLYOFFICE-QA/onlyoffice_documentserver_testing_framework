@@ -6,7 +6,7 @@ module SeleniumWrapperJsErrors
   def ignored_errors
     return @ignored_errors if @ignored_errors
 
-    @ignored_errors = File.readlines("#{Dir.pwd}/lib/onlyoffice_documentserver_testing_framework"\
+    @ignored_errors = File.readlines("#{File.expand_path('..', __dir__)}"\
                                      '/selenium_wrapper/selenium_wrapper_js_errors'\
                                      '/ingored_errors.list')
                           .map(&:strip)
