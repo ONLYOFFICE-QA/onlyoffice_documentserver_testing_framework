@@ -29,7 +29,7 @@ module SeleniumWrapperJsErrors
   deprecate :get_console_errors, :console_errors, 2025, 1
 
   def fail_if_console_error
-    errors = get_console_errors
+    errors = console_errors
     return if errors.empty?
 
     @instance.webdriver.webdriver_error(Selenium::WebDriver::Error::JavascriptError,
