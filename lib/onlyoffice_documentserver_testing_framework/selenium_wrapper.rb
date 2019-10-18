@@ -5,32 +5,8 @@ module OnlyofficeDocumentserverTestingFramework
   # Module for handle selenium with frames and some other methods
   module SeleniumWrapper
     def error_ignored?(error_message)
-      ignored_errors = %w[https://signalr.teamlab.info/signalr/negotiate
-                          https://signalr.onlyoffice.com/signalr/negotiate
-                          https://www.dropbox.com/
-                          /bundle/
-                          /socketio/
-                          /discbundle/
-                          /Contents.json
-                          branding
-                          favicon.ico
-                          uservoice
-                          js/third-party/jquery/jquery.core.js
-                          js/asc/plugins/
-                          /platform.twitter.com
-                          googleads
-                          pubmatic.com
-                          rubiconproject.com
-                          eventhandler
-                          require.js
-                          chrome-extension
-                          Access-Control-Allow-Origin
-                          SockJS has already been closed
-                          404 (Not Found)
-                          AscFonts
-                          yastatic.net/maps-beta
-                          sdkjs-plugins/youtube/index.html?lang=en-US - Blocked autofocusing on a form control in a cross-origin subframe.
-                          /embed]
+      ignored_errors = File.readlines("#{Dir.pwd}/lib/onlyoffice_documentserver_testing_framework/selenium_wrapper/ingored_errors.list")
+                           .map(&:strip)
       ignored_errors.any? { |word| error_message.include?(word) }
     end
 
