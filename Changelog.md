@@ -12,3 +12,4 @@
 * Fix checking `wait_loading_present` for non-mobile users
 * Fix extra data in `SeleniumWrapper#error_ignored?`
 * Do not use deprecated `SeleniumWrapperJsErrors#get_console_errors`
+* Change `TxtOptions#txt_options=` default param to nil
