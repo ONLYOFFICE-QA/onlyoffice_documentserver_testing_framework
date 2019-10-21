@@ -72,8 +72,8 @@ module OnlyofficeDocumentserverTestingFramework
         sleep(1)
         current_wait_time += 1
         OnlyofficeLoggerHelper.log("Waiting for Round Status for #{current_wait_time} of #{timeout_in_seconds} timeout")
-        @instance.doc_editor.windows.txt_options.set_txt_options('Unicode (UTF-8)')
-        @instance.spreadsheet_editor.windows.csv_option.set_csv_options(options)
+        @instance.doc_editor.windows.txt_options.txt_options = 'Unicode (UTF-8)'
+        @instance.spreadsheet_editor.windows.csv_option.csv_options = options
 
         # Check for error message 2.5 version
         @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
@@ -85,7 +85,7 @@ module OnlyofficeDocumentserverTestingFramework
         end
 
         @instance.selenium.select_top_frame
-        error = get_error_message_alert
+        error = error_message_alert
         @instance.selenium.webdriver_error(error) unless error.nil?
         @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
 
