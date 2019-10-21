@@ -74,7 +74,7 @@ module OnlyofficeDocumentserverTestingFramework
       encoding.select_by_number list_item_number
     end
 
-    def txt_options=(encoding_to_set = 'Unicode (UTF-8)')
+    def txt_options=(encoding_to_set = nil)
       return unless dialog_window_opened?
 
       encoding_to_set = encoding.items_text.last if encoding_to_set.nil?

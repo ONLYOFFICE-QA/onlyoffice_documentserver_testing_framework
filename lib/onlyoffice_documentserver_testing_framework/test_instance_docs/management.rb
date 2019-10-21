@@ -72,7 +72,7 @@ module OnlyofficeDocumentserverTestingFramework
         sleep(1)
         current_wait_time += 1
         OnlyofficeLoggerHelper.log("Waiting for Round Status for #{current_wait_time} of #{timeout_in_seconds} timeout")
-        @instance.doc_editor.windows.txt_options.set_txt_options
+        @instance.doc_editor.windows.txt_options.set_txt_options('Unicode (UTF-8)')
         @instance.spreadsheet_editor.windows.csv_option.set_csv_options(options)
 
         # Check for error message 2.5 version
