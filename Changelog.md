@@ -6,6 +6,7 @@
 
 * Ability to get `DocTestSiteFileListEntry#fill_forms_mode_url`
 * Ability to get `DocTestSiteFileListEntry#only_fill_forms_mode_url`
+* Methods to get info about co-edit users
 
 ### Fixes
 
