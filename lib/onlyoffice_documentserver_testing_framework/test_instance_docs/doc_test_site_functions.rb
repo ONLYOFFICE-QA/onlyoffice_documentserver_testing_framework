@@ -49,6 +49,7 @@ class DocTestSiteFunctions
     @instance.webdriver.wait_until do
       doc_test_site?
     end
+    sleep(1) # TODO: remove after update to Chromedriver 80
   end
 
   # reload the page
