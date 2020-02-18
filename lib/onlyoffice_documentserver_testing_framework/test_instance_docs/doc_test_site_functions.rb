@@ -49,7 +49,6 @@ class DocTestSiteFunctions
     @instance.webdriver.wait_until do
       doc_test_site?
     end
-    sleep(1) # TODO: remove after update to Chromedriver 80
   end
 
   # reload the page
@@ -62,6 +61,7 @@ class DocTestSiteFunctions
   # Check if current site is DocTestSite
   # @return [true, false] result of checking
   def doc_test_site?
+    sleep(1) # TODO: remove after update to Chromedriver 80
     result = @instance.selenium.element_present?(@xpath_begin_view)
     OnlyofficeLoggerHelper.log("Current server is a doc_test_site: #{result}")
     result
