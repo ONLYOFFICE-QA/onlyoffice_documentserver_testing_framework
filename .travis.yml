@@ -8,8 +8,13 @@ services:
 
 rvm:
   - ruby-head
+  - 2.7
   - 2.6
   - 2.5
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
 
 install:
   - bundle install --without development
