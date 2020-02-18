@@ -5,6 +5,7 @@ require_relative 'test_instance_docs/common_editor/editor_windows'
 require_relative 'test_instance_docs/doc_editor'
 require_relative 'test_instance_docs/doc_service_welcome'
 require_relative 'test_instance_docs/doc_test_site_functions'
+require_relative 'test_instance_docs/presentation_editor'
 require_relative 'test_instance_docs/spreadsheet_editor'
 require_relative 'test_instance_docs/management'
 
@@ -34,6 +35,11 @@ module OnlyofficeDocumentserverTestingFramework
 
     def spreadsheet_editor
       @spreadsheet_editor ||= SpreadsheetEditor.new(self)
+    end
+
+    # @return [PresentationEditor] editor of presentations
+    def presentation_editor
+      @presentation_editor ||= PresentationEditor.new(self)
     end
 
     def management
