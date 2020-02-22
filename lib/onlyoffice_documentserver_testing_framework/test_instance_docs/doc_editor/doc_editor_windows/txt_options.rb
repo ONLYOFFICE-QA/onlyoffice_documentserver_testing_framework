@@ -39,7 +39,9 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def scroll_encoding_list_to(list_item_number)
-      selenium_functions :scroll_list_by_pixels, "//*[@id='id-codepages-combo']/span/ul", (list_item_number - 1) * 25
+      selenium_functions(:scroll_list_by_pixels,
+                         "//*[@id='id-codepages-combo']/span/ul",
+                         (list_item_number - 1) * 25)
       OnlyofficeLoggerHelper.log("Scroll to #{list_item_number} element")
     end
 

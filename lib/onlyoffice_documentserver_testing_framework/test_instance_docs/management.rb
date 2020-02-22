@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
+require_relative 'management/loader_helper'
 module OnlyofficeDocumentserverTestingFramework
   # Class for management main methods
   class Management
     include SeleniumWrapper
+    include LoaderHelper
 
     attr_accessor :xpath_iframe_count
     attr_accessor :xpath_iframe
@@ -11,7 +13,11 @@ module OnlyofficeDocumentserverTestingFramework
     def initialize(instance)
       @instance = instance
       @xpath_iframe_count = 1
-      @xpath_iframe = '//iframe[not(contains(@src, "help")) and not(contains(@id, "fileFrame"))]' # Don't mixup iframe with help
+      # Don't mixup iframe with help
+      @xpath_iframe = '//iframe[not(contains(@src, "help")) and '\
+                               'not(contains(@id, "fileFrame"))]'
+      @alert_dialog_xpath = '//div[@role="alertdialog"]'
+      @alert_dialog_span_xpath = "#{@alert_dialog_xpath}/div/div/div/span"
     end
 
     # @return [Boolean] check if loader present
@@ -33,7 +39,9 @@ module OnlyofficeDocumentserverTestingFramework
       loader8 = @instance.selenium.element_visible?(@xpath_window_modal)
       mobile_loader = wait_for_mobile_loading if main_frame_mobile_element_visible?
       @instance.selenium.select_top_frame
-      loading = loader1 || loader2 || loader3 || loader4 || loader5 || loader6 || loader7 || loader8 || mobile_loader
+      loading = loader1 || loader2 || loader3 ||
+                loader4 || loader5 || loader6 || loader7 ||
+                loader8 || mobile_loader
       OnlyofficeLoggerHelper.log("Loading Present: #{loading}")
       loading
     end
@@ -55,9 +63,12 @@ module OnlyofficeDocumentserverTestingFramework
       while timer < timeout && !loading_present?
         sleep 1
         timer += 1
-        OnlyofficeLoggerHelper.log("Waiting for start loading of documents. Waiting for #{timer} seconds of #{timeout}")
+        OnlyofficeLoggerHelper.log('Waiting for start loading of documents. '\
+                                   "Waiting for #{timer} seconds of #{timeout}")
       end
-      @instance.webdriver.webdriver_error("Waiting for start loading failed for #{timeout} seconds") if timer == timeout
+      return unless timer == timeout
+
+      @instance.webdriver.webdriver_error("Waiting for start loading failed for #{timeout} seconds")
     end
 
     # Wait for operation with round status in canvas editor
@@ -71,46 +82,36 @@ module OnlyofficeDocumentserverTestingFramework
       while loading_present?
         sleep(1)
         current_wait_time += 1
-        OnlyofficeLoggerHelper.log("Waiting for Round Status for #{current_wait_time} of #{timeout_in_seconds} timeout")
+        OnlyofficeLoggerHelper.log('Waiting for Round Status for '\
+                                    "#{current_wait_time} of "\
+                                    "#{timeout_in_seconds} timeout")
         @instance.doc_editor.windows.txt_options.txt_options = 'Unicode (UTF-8)'
         @instance.spreadsheet_editor.windows.csv_option.csv_options = options
 
-        # Check for error message 2.5 version
-        @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
-        error_box_xpath = '//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span'
-        if @instance.selenium.element_visible?(error_box_xpath) &&
-           @instance.selenium.get_style_parameter('//div[contains(@class,"x-message-box")]', 'left').gsub('px', '').to_i.positive?
-          error_text = @instance.selenium.get_text(error_box_xpath).tr("\n", ' ')
-          @instance.selenium.webdriver_error("Server Error: #{error_text}")
-        end
-
-        @instance.selenium.select_top_frame
-        error = error_message_alert
-        @instance.selenium.webdriver_error(error) unless error.nil?
-        @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
+        check_2_5_version_error
+        handle_error
 
         # Close 'Select Encoding' dialog if present
         if current_wait_time > timeout_in_seconds
           @instance.selenium.select_top_frame
           @instance.selenium.webdriver_error('Timeout for render file')
         end
-
-        # Check for some error message
-        if @instance.selenium.element_visible?('//div[@role="alertdialog"]/div/div/div/span')
-          error = @instance.selenium.get_text('//div[@role="alertdialog"]/div/div/div/span').tr("\n", ' ')
-          @instance.selenium.select_top_frame
-          @instance.selenium.webdriver_error("Server Error: #{error}")
-        end
+        handle_alert_dialog
         @instance.selenium.select_top_frame
-        @instance.selenium.webdriver_error('There is not enough access rights for document') if permission_denied_message?
+        if permission_denied_message?
+          @instance.selenium.webdriver_error('There is not enough access rights for document')
+        end
         @instance.selenium.webdriver_error('The required file was not found') if file_not_found_message?
       end
 
       @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
-      if @instance.selenium.element_visible?('//div[@role="alertdialog"]/div/div/div/span')
-        result = 'Server Alert: ' + @instance.selenium.get_text('//div[@role="alertdialog"]/div/div/div/span').tr("\n", ' ')
+      if @instance.selenium.element_visible?(@alert_dialog_span_xpath)
+        alert_text = @instance.selenium.get_text(@alert_dialog_span_xpath).tr("\n", ' ')
+        result = "Server Alert: #{alert_text}"
         if result.include?('charts and images will be lost')
-          style_left = @instance.selenium.get_style_parameter('//div[@role="alertdialog"]', 'left').gsub!('px', '').to_i
+          style_left = @instance.selenium.get_style_parameter(@alert_dialog_xpath,
+                                                              'left')
+                                .gsub!('px', '').to_i
           result = true if style_left.negative?
         end
         @instance.selenium.select_top_frame
@@ -143,20 +144,6 @@ module OnlyofficeDocumentserverTestingFramework
       end
     end
 
-    # Check for error message 3.0 version
-    def error_message_alert
-      alert_xpath = "//div[contains(@class,'asc-window modal alert')]"
-      return unless visible?("#{alert_xpath}/div[2]/div[1]/div[2]/span") &&
-                    selenium_functions(:get_style_parameter, alert_xpath, 'left')
-                    .gsub('px', '').to_i.positive?
-
-      "Server Error: #{selenium_functions(:get_text, "#{alert_xpath}/div[2]/div[1]/div[2]/span").tr("\n", ' ')}"
-    end
-
-    alias get_error_message_alert error_message_alert
-    extend Gem::Deprecate
-    deprecate :get_error_message_alert, :error_message_alert, 2025, 1
-
     def permission_denied_message?
       denied_xpath = '//div[contains(text(),"You don\'t have enough permission to view the file")]'
       @instance.selenium.select_frame
@@ -166,7 +153,8 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     def file_not_found_message?
-      message_xpath = '//div[contains(@class, "tooltip-inner") and contains(text(),"The required file was not found")]'
+      message_xpath = '//div[contains(@class, "tooltip-inner") and '\
+                      'contains(text(),"The required file was not found")]'
       @instance.selenium.select_frame
       error_on_loading = @instance.selenium.element_visible?(message_xpath)
       @instance.selenium.select_top_frame
