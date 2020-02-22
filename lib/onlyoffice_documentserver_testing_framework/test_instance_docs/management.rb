@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
+require_relative 'management/loader_helper'
 module OnlyofficeDocumentserverTestingFramework
   # Class for management main methods
   class Management
     include SeleniumWrapper
+    include LoaderHelper
 
     attr_accessor :xpath_iframe_count
     attr_accessor :xpath_iframe
@@ -11,7 +13,9 @@ module OnlyofficeDocumentserverTestingFramework
     def initialize(instance)
       @instance = instance
       @xpath_iframe_count = 1
-      @xpath_iframe = '//iframe[not(contains(@src, "help")) and not(contains(@id, "fileFrame"))]' # Don't mixup iframe with help
+      # Don't mixup iframe with help
+      @xpath_iframe = '//iframe[not(contains(@src, "help")) and '\
+                               'not(contains(@id, "fileFrame"))]'
     end
 
     # @return [Boolean] check if loader present
@@ -75,14 +79,7 @@ module OnlyofficeDocumentserverTestingFramework
         @instance.doc_editor.windows.txt_options.txt_options = 'Unicode (UTF-8)'
         @instance.spreadsheet_editor.windows.csv_option.csv_options = options
 
-        # Check for error message 2.5 version
-        @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
-        error_box_xpath = '//div[contains(@class,"x-message-box")]/div[2]/div[1]/div[2]/span'
-        if @instance.selenium.element_visible?(error_box_xpath) &&
-           @instance.selenium.get_style_parameter('//div[contains(@class,"x-message-box")]', 'left').gsub('px', '').to_i.positive?
-          error_text = @instance.selenium.get_text(error_box_xpath).tr("\n", ' ')
-          @instance.selenium.webdriver_error("Server Error: #{error_text}")
-        end
+        check_2_5_version_error
 
         @instance.selenium.select_top_frame
         error = error_message_alert
@@ -102,13 +99,16 @@ module OnlyofficeDocumentserverTestingFramework
           @instance.selenium.webdriver_error("Server Error: #{error}")
         end
         @instance.selenium.select_top_frame
-        @instance.selenium.webdriver_error('There is not enough access rights for document') if permission_denied_message?
+        if permission_denied_message?
+          @instance.selenium.webdriver_error('There is not enough access rights for document')
+        end
         @instance.selenium.webdriver_error('The required file was not found') if file_not_found_message?
       end
 
       @instance.selenium.select_frame(@xpath_iframe, @xpath_iframe_count)
       if @instance.selenium.element_visible?('//div[@role="alertdialog"]/div/div/div/span')
-        result = 'Server Alert: ' + @instance.selenium.get_text('//div[@role="alertdialog"]/div/div/div/span').tr("\n", ' ')
+        alert_text = @instance.selenium.get_text('//div[@role="alertdialog"]/div/div/div/span').tr("\n", ' ')
+        result = "Server Alert: #{alert_text}"
         if result.include?('charts and images will be lost')
           style_left = @instance.selenium.get_style_parameter('//div[@role="alertdialog"]', 'left').gsub!('px', '').to_i
           result = true if style_left.negative?
