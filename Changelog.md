@@ -15,3 +15,4 @@
 * Fix extra data in `SeleniumWrapper#error_ignored?`
 * Do not use deprecated `SeleniumWrapperJsErrors#get_console_errors`
 * Change `TxtOptions#txt_options=` default param to nil
+* Fix coverage report on non-CI environments
