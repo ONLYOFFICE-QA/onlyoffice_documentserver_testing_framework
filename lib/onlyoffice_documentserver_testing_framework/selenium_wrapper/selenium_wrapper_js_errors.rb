@@ -13,7 +13,10 @@ module SeleniumWrapperJsErrors
   end
 
   def error_ignored?(error_message)
-    ignored_errors.any? { |word| error_message.include?(word) }
+    return true if ignored_errors.any? { |word| error_message.include?(word) }
+    return true if @instance.env_options['IgnoredJSErrors'].any? { |word| error_message.include?(word) }
+
+    false
   end
 
   def console_errors

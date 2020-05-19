@@ -45,5 +45,15 @@ module OnlyofficeDocumentserverTestingFramework
     def management
       @management ||= Management.new(self)
     end
+
+    # @return [Hash] Options read from environment variable
+    def env_options
+      return @env_options if @env_options
+
+      raw_options = ENV['ONLYOFFICE_DS_TESTING_OPTIONS'] || '{}'
+      @env_options = JSON.parse(raw_options)
+      @env_options['IgnoredJSErrors'] = [] unless @env_options['IgnoredJSErrors']
+      @env_options
+    end
   end
 end
