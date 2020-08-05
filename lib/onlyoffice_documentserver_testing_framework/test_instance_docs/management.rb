@@ -79,6 +79,7 @@ module OnlyofficeDocumentserverTestingFramework
 
       current_wait_time = 0
       wait_until_frame_loaded
+      wait_for_round_loading_to_start
       while loading_present?
         sleep(1)
         current_wait_time += 1
@@ -126,6 +127,15 @@ module OnlyofficeDocumentserverTestingFramework
       @instance.selenium.select_top_frame
       add_error_handler
       result
+    end
+
+    # Since v6.0.0 of DocumentServer
+    # round loading mask start to appear not instantly
+    # but after some timeout specified in
+    # https://github.com/ONLYOFFICE/web-apps/commit/a7988dc7ec1f1151ef2c204677d1746a65e39132#diff-eee9ef38f1b712adf8bcc94c29de431aR127
+    def wait_for_round_loading_to_start
+      appear_timeout = 0.5
+      sleep(appear_timeout * 2) # double just in case
     end
 
     # @return [Boolean] check if frame with editor is loaded
