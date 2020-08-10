@@ -7,7 +7,9 @@ module OnlyofficeDocumentserverTestingFramework
     include SeleniumWrapper
     include LoaderHelper
 
+    # @return [Integer] count of iframes to go into
     attr_accessor :xpath_iframe_count
+    # @return [String] xpath to single iframe
     attr_accessor :xpath_iframe
 
     def initialize(instance)

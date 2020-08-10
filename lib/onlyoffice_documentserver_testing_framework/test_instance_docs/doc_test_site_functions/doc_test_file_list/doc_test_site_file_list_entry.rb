@@ -3,7 +3,9 @@
 # Class for single entry of file in doc test site
 # https://cloud.githubusercontent.com/assets/668524/13947979/935506a6-f02e-11e5-86f4-6903dfd6119e.png
 class DocTestSiteFileListEntry
+  # @return [String] name of file
   attr_accessor :file_name
+  # @return [String] url of embedded mode
   attr_accessor :embedded_url
   # @return [String] Review mode url
   attr_accessor :review_mode_url
