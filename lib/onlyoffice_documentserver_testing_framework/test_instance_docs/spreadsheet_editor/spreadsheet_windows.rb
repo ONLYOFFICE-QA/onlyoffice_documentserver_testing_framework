@@ -7,6 +7,7 @@ module OnlyofficeDocumentserverTestingFramework
   class SpreadsheetEditorWindows < EditorWindows
     def initialize(instance)
       @instance = instance
+      super()
     end
 
     # @return [CsvOption] csv windows

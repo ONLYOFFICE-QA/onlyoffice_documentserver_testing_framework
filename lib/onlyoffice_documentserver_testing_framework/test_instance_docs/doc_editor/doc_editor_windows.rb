@@ -7,6 +7,7 @@ module OnlyofficeDocumentserverTestingFramework
   class DocEditorWindows < EditorWindows
     def initialize(instance)
       @instance = instance
+      super()
     end
 
     def txt_options
