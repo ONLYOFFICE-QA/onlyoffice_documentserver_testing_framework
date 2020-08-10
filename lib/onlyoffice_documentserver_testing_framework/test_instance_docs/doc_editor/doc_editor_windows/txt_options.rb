@@ -6,7 +6,6 @@ module OnlyofficeDocumentserverTestingFramework
     include SeleniumWrapper
 
     def initialize(instance)
-      @instance = instance
       @xpath_codepage_selector = '//*[contains(text(), "TXT")]/../..//div[@id="id-codepages-combo"]'
     end
 
