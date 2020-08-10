@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe DocTestSiteFunctions do
+describe DocTestSiteFunctions, '#language_list_options' do
   it '#language_list_options is correct' do
     instance = OnlyofficeDocumentserverTestingFramework::TestInstanceDocs.new
     instance.webdriver.open('http://localhost')
