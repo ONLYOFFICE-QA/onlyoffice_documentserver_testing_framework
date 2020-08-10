@@ -135,7 +135,7 @@ module OnlyofficeDocumentserverTestingFramework
     # https://github.com/ONLYOFFICE/web-apps/commit/a7988dc7ec1f1151ef2c204677d1746a65e39132#diff-eee9ef38f1b712adf8bcc94c29de431aR127
     def wait_for_round_loading_to_start
       appear_timeout = 0.5
-      sleep(appear_timeout * 2) # double just in case
+      sleep(appear_timeout * 4) # quad just in case, double is not enough
     end
 
     # @return [Boolean] check if frame with editor is loaded
