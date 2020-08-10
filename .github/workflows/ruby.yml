@@ -17,9 +17,9 @@ jobs:
         docker run -id -p 80:80 --name documentserver onlyoffice/documentserver-ie:latest
         sleep 60
         docker exec -i documentserver supervisorctl start all
-    - uses: codecov/codecov-action@v1
     - name: Build and test with Rake
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake spec
+    - uses: codecov/codecov-action@v1
