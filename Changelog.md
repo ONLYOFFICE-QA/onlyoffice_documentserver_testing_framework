@@ -21,3 +21,4 @@
 
 * Use GitHub Action instead of Travis CI
 * Remove dependency of `codecov`
+* Require `ruby` >= 2.4
