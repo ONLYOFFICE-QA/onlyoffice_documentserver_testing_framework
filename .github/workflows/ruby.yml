@@ -14,9 +14,9 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
     - name: Run DocumentServer
       run: |
-        docker run -itd -p 80:80 --name documentserver onlyoffice/documentserver-ie:latest
+        docker run -id -p 80:80 --name documentserver onlyoffice/documentserver-ie:latest
         sleep 60
-        docker exec -it documentserver supervisorctl start all
+        docker exec -i documentserver supervisorctl start all
     - name: Build and test with Rake
       run: |
         gem install bundler
