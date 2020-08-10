@@ -16,3 +16,8 @@
 * Do not use deprecated `SeleniumWrapperJsErrors#get_console_errors`
 * Change `TxtOptions#txt_options=` default param to nil
 * Fix coverage report on non-CI environments
+
+### Changes
+
+* Use GitHub Action instead of Travis CI
+* Remove dependency of `codecov` (still using as Github Action)
