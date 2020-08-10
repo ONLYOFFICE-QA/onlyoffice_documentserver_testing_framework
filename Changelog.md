@@ -20,4 +20,4 @@
 ### Changes
 
 * Use GitHub Action instead of Travis CI
-* Remove dependency of `codecov` (still using as Github Action)
+* Remove dependency of `codecov`
