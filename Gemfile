@@ -5,9 +5,9 @@ source 'https://rubygems.org'
 gemspec
 
 group :test do
-  gem 'codecov', require: false
   gem 'rake'
   gem 'rspec'
+  gem 'simplecov'
 end
 
 group :development do
