@@ -22,6 +22,6 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake spec
-    - uses: codecov/codecov-action@v1
+    - uses: codecov/codecov-action@v1.0.10
       with:
         file: coverage/.resultset.json
