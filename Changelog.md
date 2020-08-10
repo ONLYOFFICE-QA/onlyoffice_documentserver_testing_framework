@@ -8,6 +8,7 @@
 * Ability to get `DocTestSiteFileListEntry#only_fill_forms_mode_url`
 * Methods to get info about co-edit users
 * Ability to specify JS error to ignore via env var (fix [#34](https://github.com/onlyoffice-testing-robot/onlyoffice_documentserver_testing_framework/issues/34))
+* Add support of `rubocop-rspec`
 
 ### Fixes
 

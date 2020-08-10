@@ -2,8 +2,9 @@
 
 require 'spec_helper'
 
-describe 'TestInstanceDocs#env_options ignored errors' do
-  let(:instance) { OnlyofficeDocumentserverTestingFramework::TestInstanceDocs.new }
+describe OnlyofficeDocumentserverTestingFramework::TestInstanceDocs,
+         '#env_options_ignored_errors' do
+  let(:instance) { described_class.new }
   let(:exception_text) { 'server responded with a status of 404' }
 
   before do
@@ -12,6 +13,10 @@ describe 'TestInstanceDocs#env_options ignored errors' do
     instance.doc_service_welcome.go_to_example
     instance.doc_test_functions.upload_file(file)
     instance.doc_test_functions.open_file_in_editor
+  end
+
+  after do
+    instance.webdriver.quit
   end
 
   it 'by default raising exception raise error in test' do
@@ -35,9 +40,5 @@ describe 'TestInstanceDocs#env_options ignored errors' do
     ENV['ONLYOFFICE_DS_TESTING_OPTIONS'] = '{ "IgnoredJSErrors": ["exp1", "exp2"]}'
     expect { instance.doc_editor.top_toolbar.users.present? }
       .to raise_error(Selenium::WebDriver::Error::JavascriptError, /#{exception_text}/)
-  end
-
-  after do
-    instance.webdriver.quit
   end
 end
