@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe OnlyofficeDocumentserverTestingFramework::TestInstanceDocs,
          '#env_options_ignored_errors' do
-  let(:instance) { described_class }
+  let(:instance) { described_class.new }
   let(:exception_text) { 'server responded with a status of 404' }
 
   before do
