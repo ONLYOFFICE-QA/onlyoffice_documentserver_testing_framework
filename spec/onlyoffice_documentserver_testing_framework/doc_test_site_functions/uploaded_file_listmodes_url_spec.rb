@@ -2,7 +2,8 @@
 
 require 'spec_helper'
 
-describe 'DocTestSiteFunctions#uploaded_file_list modes' do
+describe OnlyofficeDocumentserverTestingFramework::DocTestSiteFunctions,
+         '#uploaded_file_list modes' do
   it 'fill form url is correct' do
     instance = OnlyofficeDocumentserverTestingFramework::TestInstanceDocs.new
     instance.webdriver.open('http://localhost')
