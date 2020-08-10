@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe OnlyofficeDocumentserverTestingFramework::DocTestSiteFunctions,
+describe DocTestSiteFunctions,
          '#uploaded_file_list modes' do
   it 'fill form url is correct' do
     instance = OnlyofficeDocumentserverTestingFramework::TestInstanceDocs.new
