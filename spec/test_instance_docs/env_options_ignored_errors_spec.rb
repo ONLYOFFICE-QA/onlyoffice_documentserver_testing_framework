@@ -14,6 +14,10 @@ describe 'TestInstanceDocs#env_options ignored errors' do
     instance.doc_test_functions.open_file_in_editor
   end
 
+  after do
+    instance.webdriver.quit
+  end
+
   it 'by default raising exception raise error in test' do
     expect { instance.doc_editor.top_toolbar.users.present? }
       .to raise_error(Selenium::WebDriver::Error::JavascriptError, /#{exception_text}/)
@@ -35,9 +39,5 @@ describe 'TestInstanceDocs#env_options ignored errors' do
     ENV['ONLYOFFICE_DS_TESTING_OPTIONS'] = '{ "IgnoredJSErrors": ["exp1", "exp2"]}'
     expect { instance.doc_editor.top_toolbar.users.present? }
       .to raise_error(Selenium::WebDriver::Error::JavascriptError, /#{exception_text}/)
-  end
-
-  after do
-    instance.webdriver.quit
   end
 end

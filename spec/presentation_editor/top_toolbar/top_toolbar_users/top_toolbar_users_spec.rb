@@ -12,15 +12,15 @@ describe 'Management' do
     instance.management.wait_for_operation_with_round_status_canvas
   end
 
+  after do
+    instance.webdriver.quit
+  end
+
   it 'default user button is not present' do
     expect(instance.presentation_editor.top_toolbar.users).not_to be_present
   end
 
   it 'default user count is 1' do
     expect(instance.presentation_editor.top_toolbar.users.count).to eq(1)
-  end
-
-  after do
-    instance.webdriver.quit
   end
 end

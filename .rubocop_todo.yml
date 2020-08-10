@@ -54,12 +54,3 @@ RSpec/ExampleLength:
 RSpec/FilePath:
   Exclude:
     - 'spec/doc_test_funtions/doc_test_functions_languages_spec.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-RSpec/HooksBeforeExamples:
-  Exclude:
-    - 'spec/doc_editor/top_toolbar/top_toolbar_users/top_toolbar_users_spec.rb'
-    - 'spec/presentation_editor/top_toolbar/top_toolbar_users/top_toolbar_users_spec.rb'
-    - 'spec/spreadsheet_editor/top_toolbar/top_toolbar_users/top_toolbar_users_spec.rb'
-    - 'spec/test_instance_docs/env_options_ignored_errors_spec.rb'
