@@ -52,9 +52,3 @@ Style/AccessorGrouping:
   Exclude:
     - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/doc_test_site_functions/doc_test_file_list/doc_test_site_file_list_entry.rb'
     - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/management.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/RedundantRegexpEscape:
-  Exclude:
-    - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/doc_test_site_functions.rb'

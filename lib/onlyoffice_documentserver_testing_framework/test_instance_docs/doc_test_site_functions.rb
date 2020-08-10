@@ -164,7 +164,7 @@ class DocTestSiteFunctions
   # @return [String] url
   def current_document_storage_url
     page_source = @instance.selenium.get_page_source
-    url_line = page_source.scan(/\"?url\"?: \".*$/).first
+    url_line = page_source.scan(/"?url"?: ".*$/).first
     url_line.delete('"').gsub('url: ', '').chop
   end
 
