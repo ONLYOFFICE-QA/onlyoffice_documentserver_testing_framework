@@ -23,3 +23,4 @@
 * Remove dependency of `codecov`
 * Require `ruby` >= 2.4
 * Fix new warnings from `rubocop` v0.89.1 update
+* Move all dev dependencies to `gemspec`

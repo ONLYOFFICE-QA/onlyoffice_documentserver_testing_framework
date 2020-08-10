@@ -15,5 +15,12 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/onlyoffice-testing-robot/onlyoffice_documentserver_testing_framework'
   s.add_runtime_dependency('onlyoffice_logger_helper', '~> 1')
   s.add_runtime_dependency('onlyoffice_webdriver_wrapper', '~> 0')
+  s.add_development_dependency('overcommit', '0.55.0')
+  s.add_development_dependency('rake', '13.0.1')
+  s.add_development_dependency('rspec', '3.9.0')
+  s.add_development_dependency('rubocop', '0.89.1')
+  s.add_development_dependency('rubocop-performance', '1.7.1')
+  s.add_development_dependency('rubocop-rake', '0.5.1')
+  s.add_development_dependency('simplecov', '0.18.5')
   s.license = 'AGPL-3.0'
 end
