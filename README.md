@@ -1,6 +1,6 @@
 # onlyoffice_documentserver_testing_framework
 
-Gem with basic framework for performing WebDriver 
+Gem with basic framework for performing WebDriver
 tests on ONLYOFFICE DocumentServer
 
 ## Installation
