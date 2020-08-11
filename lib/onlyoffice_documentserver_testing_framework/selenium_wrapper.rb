@@ -7,12 +7,17 @@ module OnlyofficeDocumentserverTestingFramework
   module SeleniumWrapper
     include SeleniumWrapperJsErrors
 
+    # Main wrapper function
+    # @param name [Symbol] function to call
+    # @param arguments [Hash] list of arguments
+    # @return [Object] result of method
     def selenium_functions(name, *arguments)
       select_frame do
         @instance.selenium.send name, *arguments
       end
     end
 
+    # Select actual frame of Editor
     def select_frame
       count_of_frame = @count_of_frame ? frame_count_addition : @instance.management.xpath_iframe_count
       xpath_of_frame = @xpath_of_frame || @instance.management.xpath_iframe
@@ -60,6 +65,8 @@ module OnlyofficeDocumentserverTestingFramework
       selenium_functions(:get_attribute, xpath, 'class').include?('disabled')
     end
 
+    # @param xpath [String] xpath of menu
+    # @return [True, False] if menu active
     def button_menu_active?(xpath)
       selenium_functions(:get_attribute, xpath, 'class').include?('menu-active')
     end
@@ -73,35 +80,60 @@ module OnlyofficeDocumentserverTestingFramework
       element_visible
     end
 
+    # Click on one of several displayed
+    # @param xpath [String] xpath to click
+    # @return [nil]
     def click_on_of_several_by_display_button(xpath)
       selenium_functions :click_on_one_of_several_by_display, xpath
     end
 
+    # Wait to element to appear and click
+    # @param xpath [String] xpath to click
+    # @return [nil]
     def click_on_displayed_button(xpath)
       selenium_functions :wait_element, xpath
       selenium_functions :click_on_displayed, xpath
     end
 
+    # Is line enabled
+    # @param xpath [String] xpath to check
+    # @return [True, False]
     def line_enabled?(xpath)
       selenium_functions :element_visible?, xpath
     end
 
+    # Is line checked
+    # @param xpath [String] xpath to check
+    # @return [True, False]
     def line_checked?(xpath)
       selenium_functions(:get_attribute, xpath, 'class').include?('checked')
     end
 
+    # Is menu disabled
+    # @param xpath [String] xpath to check
+    # @return [True, False]
     def menu_disabled?(xpath)
       selenium_functions(:get_attribute, xpath, 'class').include?('disabled')
     end
 
+    # Move to element
+    # @param xpath [String] xpath to move
+    # @return [nil]
     def move_to_element(xpath)
       selenium_functions :move_to_element_by_locator, xpath
     end
 
+    # Remove element
+    # @param xpath [String] xpath to remove
+    # @return [nil]
     def remove_element(xpath)
       selenium_functions :remove_element, xpath
     end
 
+    # Get attribute
+    # @param xpath [String] xpath to get attribute
+    # @param attribute [String] attribute to get
+    # @return [String] result of get attribute
     def get_attribute(xpath, attribute)
       selenium_functions :get_attribute, xpath, attribute
     end

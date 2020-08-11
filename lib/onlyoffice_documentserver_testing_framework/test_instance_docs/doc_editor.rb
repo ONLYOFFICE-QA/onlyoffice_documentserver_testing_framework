@@ -15,6 +15,7 @@ module OnlyofficeDocumentserverTestingFramework
       @top_toolbar ||= DocEditorTopToolbar.new(@instance)
     end
 
+    # @return [DocEditorWindows] windows of doc editor
     def windows
       @windows ||= DocEditorWindows.new(@instance)
     end

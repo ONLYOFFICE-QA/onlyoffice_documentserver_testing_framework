@@ -10,6 +10,7 @@ module OnlyofficeDocumentserverTestingFramework
       @xpath_codepage_selector = '//*[contains(text(), "CSV")]/../..//div[@id="id-codepages-combo"]'
     end
 
+    # @return [Array<Symbol>] list of possible csv delimiters
     DELIMITER_TYPE = %i[comma semicolon colon tab space other].freeze
 
     # region CVN Framework
@@ -36,6 +37,9 @@ module OnlyofficeDocumentserverTestingFramework
       end
     end
 
+    # Set options in csv window
+    # @param options [Hash] options to set
+    # @return [nil]
     def csv_options=(options = {})
       options[:encoding_to_set] ||= 'Unicode (UTF-8)'
       options[:csv_delimiter] ||= :comma
