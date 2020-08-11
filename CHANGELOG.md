@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.1.0 (2020-08-11)
+
 ### New Features
 
 * Ability to get `DocTestSiteFileListEntry#fill_forms_mode_url`
