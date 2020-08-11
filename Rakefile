@@ -12,6 +12,6 @@ task :release_github_rubygems do
   Rake::Task['release'].invoke
   sh('gem push --key github '\
    '--host https://rubygems.pkg.github.com/onlyoffice-testing-robot '\
-   "pkg/#{OnlyofficeDocumentserverTestingFramework::NAME}-"\
-   "#{OnlyofficeDocumentserverTestingFramework::VERSION}.gem")
+   "pkg/#{OnlyofficeDocumentserverTestingFramework::Name::STRING}-"\
+   "#{OnlyofficeDocumentserverTestingFramework::Version::STRING}.gem")
 end

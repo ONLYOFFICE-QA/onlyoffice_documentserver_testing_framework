@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.1.1 (2020-08-11)
+
+* Fix `rake` task for release on GitHub Packages
+
 ## 0.1.0 (2020-08-11)
 
 ### New Features
