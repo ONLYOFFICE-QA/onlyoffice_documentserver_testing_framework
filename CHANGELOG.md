@@ -12,6 +12,7 @@
 * Check `markdown` issues via `markdownlink` in CI
 * Increase code documentation to 100%
 * CI check that code 100% documented
+* `rake` task to release a gem
 
 ### Fixes
 
