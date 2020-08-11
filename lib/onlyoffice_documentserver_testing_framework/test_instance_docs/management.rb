@@ -52,6 +52,8 @@ module OnlyofficeDocumentserverTestingFramework
       @instance.selenium.element_visible?('//*[contains(@class,"framework7-root")]')
     end
 
+    # Check if mobile loading is in progress
+    # @return [True, False] is loading in progress
     def wait_for_mobile_loading
       @instance.selenium.element_visible?('//*[contains(@class,"modal-preloader")]') ||
         @instance.selenium.element_visible?('//*[contains(@class,"loader-page")]') ||
@@ -174,6 +176,8 @@ module OnlyofficeDocumentserverTestingFramework
       error_on_loading
     end
 
+    # Add js code to handle JS errors
+    # @return [nil]
     def add_error_handler
       js_handler = 'window.jsErrors = [];'\
                    'window.onerror = function(errorMessage) '\

@@ -10,10 +10,16 @@ class DocTestFileList
     @file_list = file_list
   end
 
+  # Access file in list like array
+  # @param key [String] name of file
+  # @return [DocTestSiteFileListEntry]
   def [](key)
     @file_list[key]
   end
 
+  # Get diff between two file list
+  # @param other [DocTestFileList] diff with other list
+  # @return [Hash] diff
   def -(other)
     diff_items = []
     @file_list.each do |current_item|

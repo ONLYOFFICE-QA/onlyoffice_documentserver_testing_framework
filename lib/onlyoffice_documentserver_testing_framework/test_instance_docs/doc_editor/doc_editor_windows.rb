@@ -10,6 +10,7 @@ module OnlyofficeDocumentserverTestingFramework
       super()
     end
 
+    # @return [TxtOptions] widnow for txt options
     def txt_options
       @txt_options ||= TxtOptions.new(@instance)
     end

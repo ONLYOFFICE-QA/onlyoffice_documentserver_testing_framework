@@ -19,20 +19,24 @@ module OnlyofficeDocumentserverTestingFramework
       @selenium = webdriver
     end
 
+    # @return [DocServiceWelcome] welcome page of DocumentServer
     def doc_service_welcome
       @doc_service_welcome ||= DocServiceWelcome.new(self)
     end
 
+    # @return [DocTestSiteFunctions] methods for test site
     def doc_test_functions
       # Do not cache methods since they use PageObject and cause all sort of troubles
       # if test run several times with different webdriver
       DocTestSiteFunctions.new(self)
     end
 
+    # @return [DocEditor] Document Editor instance
     def doc_editor
       @doc_editor ||= DocEditor.new(self)
     end
 
+    # @return [SpreadsheetEditor] Spreadsheet Editor instance
     def spreadsheet_editor
       @spreadsheet_editor ||= SpreadsheetEditor.new(self)
     end
@@ -42,6 +46,7 @@ module OnlyofficeDocumentserverTestingFramework
       @presentation_editor ||= PresentationEditor.new(self)
     end
 
+    # @return [Management] management methods
     def management
       @management ||= Management.new(self)
     end

@@ -29,6 +29,8 @@ class DocTestSiteFileListEntry
     @view_mode_url = fetch_view_mode_url
   end
 
+  # Compare two DocTestSiteFileListEntry
+  # @return [True, False] is entries are the same
   def ==(other)
     @file_name == other.file_name
   end

@@ -12,6 +12,9 @@ module SeleniumWrapperJsErrors
                           .map(&:strip)
   end
 
+  # Should current error be ignored
+  # @param error_message [String] current error
+  # @return [True, False] should be ignored?
   def error_ignored?(error_message)
     return true if ignored_errors.any? { |word| error_message.include?(word) }
     return true if @instance.env_options['IgnoredJSErrors'].any? { |word| error_message.include?(word) }
@@ -19,6 +22,7 @@ module SeleniumWrapperJsErrors
     false
   end
 
+  # @return [Array<String>] list of current console errors
   def console_errors
     severe_error = []
     @instance.webdriver.browser_logs.each do |log|
@@ -31,6 +35,7 @@ module SeleniumWrapperJsErrors
   extend Gem::Deprecate
   deprecate :get_console_errors, :console_errors, 2025, 1
 
+  # Fail if any JS error happened
   def fail_if_console_error
     errors = console_errors
     return if errors.empty?
