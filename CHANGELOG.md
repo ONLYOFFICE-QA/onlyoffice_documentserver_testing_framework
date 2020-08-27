@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Add one more ignored error for YouTube plugin autofocus
+
 ## 0.1.1 (2020-08-11)
 
 * Fix `rake` task for release on GitHub Packages
