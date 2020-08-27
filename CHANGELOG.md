@@ -6,6 +6,10 @@
 
 * Install current stable Google Chrome in GitHub Actions
 
+### Fixes
+
+* Add config to `markdownlint` to allow `MD024` for siblings-only
+
 ### Changes
 
 * Add one more ignored error for YouTube plugin autofocus
