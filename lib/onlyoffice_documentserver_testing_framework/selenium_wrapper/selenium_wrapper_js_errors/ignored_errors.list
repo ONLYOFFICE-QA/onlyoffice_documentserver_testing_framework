@@ -23,6 +23,7 @@ Failed to load resource: the server responded with a status of 404 ()
 AscFonts
 yastatic.net
 Blocked autofocusing on a form control in a cross-origin subframe.
+Blocked autofocusing on a <input> element in a cross-origin subframe.
 /embed
 ResponsiveVoice missing API key
 /libfont/wasm/
