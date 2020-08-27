@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Install current stable Google Chrome in GitHub Actions
+
 ### Changes
 
 * Add one more ignored error for YouTube plugin autofocus
