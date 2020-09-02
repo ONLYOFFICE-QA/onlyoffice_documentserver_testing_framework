@@ -13,6 +13,7 @@
 ### Changes
 
 * Add one more ignored error for YouTube plugin autofocus
+* Allow CI failures on `ruby-head`
 
 ## 0.1.1 (2020-08-11)
 
