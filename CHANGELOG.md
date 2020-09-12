@@ -5,6 +5,7 @@
 ### New Features
 
 * Install current stable Google Chrome in GitHub Actions
+* New test to check `ONLYOFFICE_DS_TESTING_OPTIONS`
 
 ### Fixes
 

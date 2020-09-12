@@ -30,6 +30,12 @@ describe OnlyofficeDocumentserverTestingFramework::TestInstanceDocs,
       .not_to raise_error
   end
 
+  it 'if env option with same single exception is specified in percent parenthesis quotes' do
+    ENV['ONLYOFFICE_DS_TESTING_OPTIONS'] = %({"IgnoredJSErrors": ["#{exception_text}"]})
+    expect { instance.doc_editor.top_toolbar.users.present? }
+      .not_to raise_error
+  end
+
   it 'if env option with same exception and some other is specified and everything is fine' do
     ENV['ONLYOFFICE_DS_TESTING_OPTIONS'] = "{ \"IgnoredJSErrors\": [\"#{exception_text}\", \"exp2\"]}"
     expect { instance.doc_editor.top_toolbar.users.present? }
