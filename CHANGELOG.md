@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.2.0 (2020-09-13)
+
 ### New Features
 
 * Install current stable Google Chrome in GitHub Actions
