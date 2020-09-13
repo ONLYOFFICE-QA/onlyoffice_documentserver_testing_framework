@@ -7,6 +7,7 @@
 * Install current stable Google Chrome in GitHub Actions
 * New test to check `ONLYOFFICE_DS_TESTING_OPTIONS`
 * Add `dependabot` config
+* Add `rubocop` task to CI
 
 ### Fixes
 
