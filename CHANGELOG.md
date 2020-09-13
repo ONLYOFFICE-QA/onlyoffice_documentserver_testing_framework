@@ -15,6 +15,7 @@
 
 * Add one more ignored error for YouTube plugin autofocus
 * Allow CI failures on `ruby-head`
+* Move source to `ONLYOFFICE-QA` organization
 
 ## 0.1.1 (2020-08-11)
 
@@ -27,7 +28,7 @@
 * Ability to get `DocTestSiteFileListEntry#fill_forms_mode_url`
 * Ability to get `DocTestSiteFileListEntry#only_fill_forms_mode_url`
 * Methods to get info about co-edit users
-* Ability to specify JS error to ignore via env var (fix [#34](https://github.com/onlyoffice-testing-robot/onlyoffice_documentserver_testing_framework/issues/34))
+* Ability to specify JS error to ignore via env var (fix [#34](https://github.com/ONLYOFFICE-QA/onlyoffice_documentserver_testing_framework/issues/34))
 * Add support of `rubocop-rspec`
 * Check `markdown` issues via `markdownlink` in CI
 * Increase code documentation to 100%

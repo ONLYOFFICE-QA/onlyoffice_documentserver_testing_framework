@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ['ONLYOFFICE', 'Pavel Lobashov']
   s.summary = 'ONLYOFFICE DocumentServer testing framework'
   s.description = 'ONLYOFFICE DocumentServer testing framework, used in QA'
-  s.homepage = "https://github.com/onlyoffice-testing-robot/#{s.name}"
+  s.homepage = "https://github.com/ONLYOFFICE-QA/#{s.name}"
   s.metadata = {
     'bug_tracker_uri' => "#{s.homepage}/issues",
     'changelog_uri' => "#{s.homepage}/blob/master/CHANGELOG.md",
