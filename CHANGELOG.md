@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Add several new errors to ignored list
+
 ## 0.2.0 (2020-09-13)
 
 ### New Features
