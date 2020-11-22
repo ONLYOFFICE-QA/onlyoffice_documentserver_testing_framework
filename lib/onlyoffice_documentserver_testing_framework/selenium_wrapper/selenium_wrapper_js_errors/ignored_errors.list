@@ -28,3 +28,4 @@ Blocked autofocusing on a <input> element in a cross-origin subframe.
 ResponsiveVoice missing API key
 /libfont/wasm/
 UserControls/Management
+clientscript/
