@@ -13,10 +13,21 @@ module OnlyofficeDocumentserverTestingFramework
   # Main class for browser instance
   class TestInstanceDocs
     attr_accessor :selenium
+    # @return [String] base url of DocumentServer
+    attr_reader :doc_server_base_url
     alias webdriver selenium
 
-    def initialize(webdriver: OnlyofficeWebdriverWrapper::WebDriver.new(:chrome))
+    # Initialize new instance
+    # @param [OnlyofficeWebdriverWrapper::WebDriver] webdriver for test instance
+    # @param [String] doc_server_base_url base url of DocumentServer
+    def initialize(webdriver: OnlyofficeWebdriverWrapper::WebDriver.new(:chrome), doc_server_base_url: nil)
       @selenium = webdriver
+      @doc_server_base_url = doc_server_base_url
+    end
+
+    # Open DocServer base url page
+    def go_to_base_url
+      webdriver.open(doc_server_base_url)
     end
 
     # @return [DocServiceWelcome] welcome page of DocumentServer
