@@ -2,6 +2,11 @@
 
 ## master (unreleased)
 
+### New Features
+
+* New method `DocTestSiteFunctions#reopen_after_autosave`
+* New method `TestInstanceDocs#go_to_base_url`
+
 ### Changes
 
 * Add several new errors to ignored list

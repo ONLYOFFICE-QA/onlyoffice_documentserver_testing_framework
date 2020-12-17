@@ -232,4 +232,13 @@ class DocTestSiteFunctions
   def healthcheck
     @healthcheck = HealthcheckPage.new(@instance)
   end
+
+  # Perform reopen after autosave
+  def reopen_after_autosave
+    url = @instance.selenium.get_url
+    @instance.go_to_base_url
+    sleep(60) # just a rough value for building document version
+    @instance.webdriver.open(url)
+    @instance.management.wait_for_operation_with_round_status_canvas
+  end
 end
