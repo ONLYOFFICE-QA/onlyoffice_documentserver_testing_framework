@@ -10,6 +10,7 @@
 ### Changes
 
 * Add several new errors to ignored list
+* Freeze dev dependencies version in `Gemfile.lock`
 
 ## 0.2.0 (2020-09-13)
 
