@@ -23,14 +23,14 @@ Gem::Specification.new do |s|
   s.files = Dir['lib/**/*']
   s.add_runtime_dependency('onlyoffice_logger_helper', '~> 1')
   s.add_runtime_dependency('onlyoffice_webdriver_wrapper', '~> 0')
-  s.add_development_dependency('overcommit', '0.57.0')
-  s.add_development_dependency('rake', '13.0.1')
-  s.add_development_dependency('rspec', '3.10.0')
-  s.add_development_dependency('rubocop', '0.93.1')
-  s.add_development_dependency('rubocop-performance', '1.9.1')
-  s.add_development_dependency('rubocop-rake', '0.5.1')
-  s.add_development_dependency('rubocop-rspec', '1.44.1')
-  s.add_development_dependency('simplecov', '0.18.5')
-  s.add_development_dependency('yard', '0.9.25')
+  s.add_development_dependency('overcommit', '~> 0')
+  s.add_development_dependency('rake', '~> 13')
+  s.add_development_dependency('rspec', '~> 3')
+  s.add_development_dependency('rubocop', '~> 0')
+  s.add_development_dependency('rubocop-performance', '~> 1')
+  s.add_development_dependency('rubocop-rake', '~> 0')
+  s.add_development_dependency('rubocop-rspec', '~> 1')
+  s.add_development_dependency('simplecov', '~> 0')
+  s.add_development_dependency('yard', '~> 0', '>= 0.9.20')
   s.license = 'AGPL-3.0'
 end
