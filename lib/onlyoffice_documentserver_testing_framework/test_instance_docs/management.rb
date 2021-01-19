@@ -16,7 +16,7 @@ module OnlyofficeDocumentserverTestingFramework
       @instance = instance
       @xpath_iframe_count = 1
       # Don't mixup iframe with help
-      @xpath_iframe = '//iframe[not(contains(@src, "help")) and '\
+      @xpath_iframe = '//iframe[not(contains(@src, "/help/")) and '\
                                'not(contains(@id, "fileFrame"))]'
       @alert_dialog_xpath = '//div[@role="alertdialog"]'
       @alert_dialog_span_xpath = "#{@alert_dialog_xpath}/div/div/div/span"
