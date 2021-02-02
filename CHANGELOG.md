@@ -13,6 +13,8 @@
 
 * Add several new errors to ignored list
 * Freeze dev dependencies version in `Gemfile.lock`
+* Store `DocTestSiteFunctions.supported_languages` as class method, 
+  not constant
 
 ## 0.2.0 (2020-09-13)
 
