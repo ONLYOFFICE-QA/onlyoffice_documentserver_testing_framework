@@ -8,28 +8,6 @@ class DocTestSiteFunctions
   extend DocTestSiteServerHelper
   include PageObject
 
-  # @return [Array<String>] list of supported languages
-  SUPPORTED_LANGUAGES = %w[English
-                           Bulgarian
-                           Chinese
-                           Czech
-                           Dutch
-                           French
-                           German
-                           Hungarian
-                           Italian
-                           Japanese
-                           Korean
-                           Latvian
-                           Polish
-                           Portuguese
-                           Russian
-                           Slovak
-                           Slovenian
-                           Spanish
-                           Turkish
-                           Ukrainian
-                           Vietnamese].freeze
   select_list(:user_list, xpath: '//*[@id="user"]')
   select_list(:language_list, xpath: '//*[@id="language"]')
 
@@ -240,5 +218,19 @@ class DocTestSiteFunctions
     sleep(60) # just a rough value for building document version
     @instance.webdriver.open(url)
     @instance.management.wait_for_operation_with_round_status_canvas
+  end
+
+  # @param [DocumentServerVersion] version of server
+  # @return [Array<String>] list of supported languages
+  def self.supported_languages(version = OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new)
+    file = if version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(6, 2)
+             'doc_test_site_languages_after_6_2.list'
+           else
+             'doc_test_site_languages_before_6_2.list'
+           end
+    File.readlines("#{File.expand_path('..', __dir__)}"\
+                                     '/test_instance_docs/doc_test_site_functions/'\
+                                     "#{file}")
+        .map(&:strip)
   end
 end
