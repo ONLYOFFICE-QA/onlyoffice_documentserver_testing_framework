@@ -7,6 +7,7 @@
 * New method `DocTestSiteFunctions#reopen_after_autosave`
 * New method `TestInstanceDocs#go_to_base_url`
 * Add `ruby-3.0` to CI
+* Move `DocumentServerVersion` to this project
 
 ### Changes
 
