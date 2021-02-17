@@ -19,6 +19,12 @@ class DocTestSiteFunctions
     @xpath_conversion_step = '//*[@id="step2"]'
     @xpath_editor_scripts_step = '//*[@id="step3"]'
     @xpath_file_entry = '//*[@class="stored-list"]/table/tbody/tr'
+    @xpath_create_doc = '//*[contains(@class, "try-editor document")]|'\
+                        '//*[contains(@class, "try-editor word")]'
+    @xpath_create_workbook = '//*[contains(@class, "try-editor spreadsheet")]|'\
+                             '//*[contains(@class, "try-editor cell")]'
+    @xpath_create_presentation = '//*[contains(@class, "try-editor presentation")]|'\
+                                 '//*[contains(@class, "try-editor slide")]'
   end
 
   # Waiting for load of page
@@ -148,7 +154,7 @@ class DocTestSiteFunctions
 
   # @return [True, False] is on file list page now?
   def file_list_opened?
-    @instance.selenium.element_visible?('//*[contains(@class, "try-editor document")]')
+    @instance.selenium.element_visible?(@xpath_create_doc)
   end
 
   # @return [Integer] count of uploaded files
@@ -186,11 +192,11 @@ class DocTestSiteFunctions
   def open_sample_document(format = :document, wait_to_load: true)
     case format
     when :document
-      @instance.selenium.click_on_locator('//*[contains(@class, "try-editor document")]')
+      @instance.selenium.click_on_locator(@xpath_create_doc)
     when :spreadsheet
-      @instance.selenium.click_on_locator('//*[contains(@class, "try-editor spreadsheet")]')
+      @instance.selenium.click_on_locator(@xpath_create_workbook)
     when :presentation
-      @instance.selenium.click_on_locator('//*[contains(@class, "try-editor presentation")]')
+      @instance.selenium.click_on_locator(@xpath_create_presentation)
     else
       @instance.webdriver.webdriver_error("Unknown file type for open_sample_document(#{format})")
     end
