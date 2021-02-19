@@ -23,11 +23,11 @@ describe OnlyofficeDocumentserverTestingFramework::TestInstanceDocs,
   end
 
   it 'file_id_by_name return nil for unknown file' do
-    expect(instance.integration_example_api.file_id_by_name('/foo')).to be_nil
+    expect(instance.integration_example_api.file_data('/foo')).to be_nil
   end
 
   it 'file_id_by_name return id for known file' do
     uploaded_name = instance.integration_example_api.upload_file(file)
-    expect(instance.integration_example_api.file_id_by_name(uploaded_name)).to be_a(String)
+    expect(instance.integration_example_api.file_data(uploaded_name)).to be_a(Hash)
   end
 end

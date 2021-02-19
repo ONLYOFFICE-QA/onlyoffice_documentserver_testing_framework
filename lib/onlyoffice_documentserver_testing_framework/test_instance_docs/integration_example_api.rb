@@ -29,12 +29,12 @@ module OnlyofficeDocumentserverTestingFramework
       JSON.parse(response.read_body)['filename']
     end
 
-    # Get file id by it's name
+    # Get file data by it's name
     # @param [String] name
     # @return [String, nil] id
-    def file_id_by_name(name)
+    def file_data(name)
       files.each do |file|
-        return file['id'] if file['title'] == name
+        return file if file['title'] == name
       end
       nil
     end
