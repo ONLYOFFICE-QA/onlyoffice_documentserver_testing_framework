@@ -21,4 +21,13 @@ describe OnlyofficeDocumentserverTestingFramework::TestInstanceDocs,
     second_name = instance.integration_example_api.upload_file(file)
     expect(first_name).not_to eq(second_name)
   end
+
+  it 'file_id_by_name return nil for unknown file' do
+    expect(instance.integration_example_api.file_id_by_name('/foo')).to be_nil
+  end
+
+  it 'file_id_by_name return id for known file' do
+    uploaded_name = instance.integration_example_api.upload_file(file)
+    expect(instance.integration_example_api.file_id_by_name(uploaded_name)).to be_a(String)
+  end
 end

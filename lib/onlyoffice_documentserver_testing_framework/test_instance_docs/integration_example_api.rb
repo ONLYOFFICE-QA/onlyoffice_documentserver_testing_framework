@@ -29,6 +29,16 @@ module OnlyofficeDocumentserverTestingFramework
       JSON.parse(response.read_body)['filename']
     end
 
+    # Get file id by it's name
+    # @param [String] name
+    # @return [String, nil] id
+    def file_id_by_name(name)
+      files.each do |file|
+        return file['id'] if file['title'] == name
+      end
+      nil
+    end
+
     private
 
     def http_from_url(url)
