@@ -11,6 +11,7 @@
 * Add `IntegrationExampleApi#files`
 * Add `IntegrationExampleApi#upload_file`
 * Add `IntegrationExampleApi#file_data`
+* Add `IntegrationExampleApi#delete_file`
 
 ### Changes
 

@@ -29,6 +29,18 @@ module OnlyofficeDocumentserverTestingFramework
       JSON.parse(response.read_body)['filename']
     end
 
+    # Delete file on server by name
+    # @param [String] file_name
+    # @return [nil]
+    def delete_file(file_name)
+      raise 'File name is not found on server' unless file_data(file_name)
+
+      url = URI("#{@api_endpoint}/file?filename=#{file_name}")
+      request = Net::HTTP::Delete.new(url)
+      response = http_from_url(url).request(request)
+      JSON.parse(response.read_body)
+    end
+
     # Get file data by it's name
     # @param [String] name
     # @return [String, nil] id

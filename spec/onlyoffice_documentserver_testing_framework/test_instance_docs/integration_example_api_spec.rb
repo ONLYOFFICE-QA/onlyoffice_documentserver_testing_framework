@@ -30,4 +30,10 @@ describe OnlyofficeDocumentserverTestingFramework::TestInstanceDocs,
     uploaded_name = instance.integration_example_api.upload_file(file)
     expect(instance.integration_example_api.file_data(uploaded_name)).to be_a(Hash)
   end
+
+  it 'delete_file can delete uploaded file' do
+    uploaded_name = instance.integration_example_api.upload_file(file)
+    instance.integration_example_api.delete_file(uploaded_name)
+    expect(instance.integration_example_api.file_data(uploaded_name)).to be_nil
+  end
 end
