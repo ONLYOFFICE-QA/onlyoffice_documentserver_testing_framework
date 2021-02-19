@@ -9,6 +9,7 @@
 * Add `ruby-3.0` to CI
 * Move `DocumentServerVersion` to this project
 * Add `IntegrationExampleApi#files`
+* Add `IntegrationExampleApi#upload_file`
 
 ### Changes
 
