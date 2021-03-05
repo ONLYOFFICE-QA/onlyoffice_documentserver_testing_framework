@@ -8,6 +8,10 @@
 * New method `TestInstanceDocs#go_to_base_url`
 * Add `ruby-3.0` to CI
 * Move `DocumentServerVersion` to this project
+* Add `IntegrationExampleApi#files`
+* Add `IntegrationExampleApi#upload_file`
+* Add `IntegrationExampleApi#file_data`
+* Add `IntegrationExampleApi#delete_file`
 
 ### Changes
 

@@ -5,6 +5,7 @@ require_relative 'test_instance_docs/common_editor/editor_windows'
 require_relative 'test_instance_docs/doc_editor'
 require_relative 'test_instance_docs/doc_service_welcome'
 require_relative 'test_instance_docs/doc_test_site_functions'
+require_relative 'test_instance_docs/integration_example_api'
 require_relative 'test_instance_docs/presentation_editor'
 require_relative 'test_instance_docs/spreadsheet_editor'
 require_relative 'test_instance_docs/management'
@@ -40,6 +41,11 @@ module OnlyofficeDocumentserverTestingFramework
       # Do not cache methods since they use PageObject and cause all sort of troubles
       # if test run several times with different webdriver
       DocTestSiteFunctions.new(self)
+    end
+
+    # @return [IntegrationExampleApi] for methods
+    def integration_example_api
+      @integration_example_api ||= IntegrationExampleApi.new(self)
     end
 
     # @return [DocEditor] Document Editor instance
