@@ -24,8 +24,8 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
     - name: Run DocumentServer
       run: |
-        docker run -id -p 80:80 --name documentserver onlyoffice/documentserver-ie:latest
-        sleep 60
+        docker run -id -p 80:80 --name documentserver onlyoffice/documentserver-ee:latest
+        sleep 120
         docker exec -i documentserver supervisorctl start all
     - name: Build and test with Rake
       run: |
