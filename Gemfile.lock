@@ -32,7 +32,7 @@ GEM
       yml_reader (>= 0.6)
     diff-lcs (1.4.4)
     docile (1.3.5)
-    faker (2.12.0)
+    faker (2.17.0)
       i18n (>= 1.6, < 2)
     headless (2.3.1)
     i18n (1.8.9)
@@ -67,7 +67,7 @@ GEM
       ast (~> 2.4.1)
     rainbow (3.0.0)
     rake (13.0.3)
-    regexp_parser (1.8.2)
+    regexp_parser (2.1.1)
     rexml (3.2.4)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -113,9 +113,9 @@ GEM
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
     unicode-display_width (2.0.0)
-    watir (6.16.5)
-      regexp_parser (~> 1.2)
-      selenium-webdriver (~> 3.6)
+    watir (6.19.1)
+      regexp_parser (>= 1.2, < 3)
+      selenium-webdriver (>= 3.142.7)
     yard (0.9.26)
     yml_reader (0.7)
 
@@ -135,4 +135,4 @@ DEPENDENCIES
   yard (~> 0, >= 0.9.20)
 
 BUNDLED WITH
-   2.1.4
+   2.2.14
