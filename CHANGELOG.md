@@ -1,8 +1,8 @@
 # Change log
 
-## 0.3.0 (2021-03-24)
-
 ## master (unreleased)
+
+## 0.3.0 (2021-03-24)
 
 ### New Features
 
