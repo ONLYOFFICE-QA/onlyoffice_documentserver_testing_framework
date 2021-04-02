@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.4.0 (2021-04-02)
+
+### New Features
+
+* Add support of new test-example design on `develop`
+
 ## 0.3.0 (2021-03-24)
 
 ### New Features
