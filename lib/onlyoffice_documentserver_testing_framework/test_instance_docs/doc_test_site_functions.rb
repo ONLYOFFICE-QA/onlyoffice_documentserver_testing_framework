@@ -18,7 +18,7 @@ class DocTestSiteFunctions
     @xpath_file_loading_step = '//*[@id="step1"]'
     @xpath_conversion_step = '//*[@id="step2"]'
     @xpath_editor_scripts_step = '//*[@id="step3"]'
-    @xpath_file_entry = '//*[@class="stored-list"]/table/tbody/tr'
+    @xpath_file_entry = '//*[@class="stored-list"]//table/tbody/tr'
     @xpath_create_doc = '//*[contains(@class, "try-editor document")]|'\
                         '//*[contains(@class, "try-editor word")]'
     @xpath_create_workbook = '//*[contains(@class, "try-editor spreadsheet")]|'\
