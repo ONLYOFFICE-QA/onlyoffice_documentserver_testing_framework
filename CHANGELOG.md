@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* New method to get doc name `TitleRow#document_name`
+
 ## 0.4.0 (2021-04-02)
 
 ### New Features
