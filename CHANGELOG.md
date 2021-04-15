@@ -6,6 +6,10 @@
 
 * New method to get doc name `TitleRow#document_name`
 
+### Changes
+
+* Drop support of `ruby-2.4` since it's EOLed more than year ago
+
 ## 0.4.0 (2021-04-02)
 
 ### New Features
