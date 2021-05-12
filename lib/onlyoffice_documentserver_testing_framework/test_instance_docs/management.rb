@@ -20,6 +20,8 @@ module OnlyofficeDocumentserverTestingFramework
                                'not(contains(@id, "fileFrame"))]'
       @alert_dialog_xpath = '//div[@role="alertdialog"]'
       @alert_dialog_span_xpath = "#{@alert_dialog_xpath}/div/div/div/span"
+      @xpath_window_modal = "//div[contains(@class, 'asc-window modal')]"
+      @xpath_anonymous_user_name_input = '//div[@id="id-dlg-username-caption"]'
     end
 
     # @return [Boolean] check if loader present
@@ -38,7 +40,7 @@ module OnlyofficeDocumentserverTestingFramework
       loader5 = @instance.selenium.element_visible?('//*[@id="loading-mask"]')
       loader6 = @instance.selenium.element_visible?('//*[@class="modals-mask"]')
       loader7 = @instance.selenium.element_visible?('//*[@class="asc-loadmask"]')
-      loader8 = @instance.selenium.element_visible?(@xpath_window_modal)
+      loader8 = loading_blocking_modal_dialog?
       mobile_loader = wait_for_mobile_loading if main_frame_mobile_element_visible?
       @instance.selenium.select_top_frame
       loading = loader1 || loader2 || loader3 ||
@@ -201,6 +203,14 @@ module OnlyofficeDocumentserverTestingFramework
       else
         @instance.selenium.webdriver_error "Unknown editor type for url: #{url}"
       end
+    end
+
+    # @return [True, False] is there is loading blocking modals dialog
+    def loading_blocking_modal_dialog?
+      return false unless @instance.selenium.element_visible?(@xpath_window_modal)
+      return false if @instance.selenium.element_visible?(@xpath_anonymous_user_name_input)
+
+      true
     end
   end
 end
