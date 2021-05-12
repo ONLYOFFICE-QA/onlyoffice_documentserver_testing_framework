@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.5.1 (2021-05-12)
+
+### Fixes
+
+* Do not hangup loading on anonymous change name window
+
 ## 0.5.0 (2021-04-15)
 
 ### New Features
