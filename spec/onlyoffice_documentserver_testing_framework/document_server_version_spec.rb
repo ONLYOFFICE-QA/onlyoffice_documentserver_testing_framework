@@ -7,7 +7,8 @@ describe OnlyofficeDocumentserverTestingFramework::DocumentServerVersion do
   let(:major_increase) { described_class.new(5, 5, 0, 5) }
 
   it 'Server version is equal to self' do
-    expect(first_version).to eq(first_version)
+    second_version = first_version.dup
+    expect(first_version).to eq(second_version)
   end
 
   it 'After major increase version is greater' do
