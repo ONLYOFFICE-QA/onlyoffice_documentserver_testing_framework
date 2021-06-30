@@ -235,8 +235,8 @@ class DocTestSiteFunctions
              'doc_test_site_languages_before_6_2.list'
            end
     File.readlines("#{File.expand_path('..', __dir__)}"\
-                                     '/test_instance_docs/doc_test_site_functions/'\
-                                     "#{file}")
+                   '/test_instance_docs/doc_test_site_functions/'\
+                   "#{file}")
         .map(&:strip)
   end
 end
