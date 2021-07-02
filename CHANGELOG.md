@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+### 0.5.2 (2021-07-02)
+
 ### New Features
 
 * Support for waiting to load Mobile Editors changed in DocumentServer v6.4
