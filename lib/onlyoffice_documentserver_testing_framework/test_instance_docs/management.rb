@@ -59,6 +59,7 @@ module OnlyofficeDocumentserverTestingFramework
     def wait_for_mobile_loading
       @instance.selenium.element_visible?('//*[contains(@class,"modal-preloader")]') ||
         @instance.selenium.element_visible?('//*[contains(@class,"loader-page")]') ||
+        @instance.selenium.element_visible?('//div[contains(@class, "dialog-preloader")]') ||
         @instance.selenium.get_element('//*[contains(@class,"iScrollVerticalScrollbar")]').nil?
     end
 
