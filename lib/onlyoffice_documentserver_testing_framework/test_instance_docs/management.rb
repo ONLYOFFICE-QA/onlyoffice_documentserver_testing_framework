@@ -80,6 +80,8 @@ module OnlyofficeDocumentserverTestingFramework
 
     # Wait for operation with round status in canvas editor
     # @param [Integer] timeout_in_seconds count of seconds to wait
+    # @param [Hash] options additional options
+    # @option options [Integer] :additional_wait additional after file open. 0 by default
     def wait_for_operation_with_round_status_canvas(timeout_in_seconds = 300, options = {})
       result = true
       OnlyofficeLoggerHelper.log('Start waiting for Round Status')
@@ -133,6 +135,7 @@ module OnlyofficeDocumentserverTestingFramework
       @instance.selenium.execute_javascript('window.onbeforeunload = null') # OFF POPUP WINDOW
       @instance.selenium.select_top_frame
       add_error_handler
+      sleep(options.fetch(:additional_wait, 0))
       result
     end
 
