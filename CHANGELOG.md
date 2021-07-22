@@ -2,6 +2,13 @@
 
 ## master (unreleased)
 
+## 0.6.0 (2021-07-22)
+
+### New Feature
+
+* Add `Management#wait_for_operation_with_round_status_canvas` new option
+  `additional_wait`
+
 ## 0.5.2 (2021-07-02)
 
 ### New Features
