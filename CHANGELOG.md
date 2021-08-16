@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.6.1 (2021-08-16)
+
 ### Fixes
 
 * Fix `\` in `healthcheck` url
