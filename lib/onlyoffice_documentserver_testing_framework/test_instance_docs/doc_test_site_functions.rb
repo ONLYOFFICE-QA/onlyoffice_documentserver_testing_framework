@@ -209,7 +209,7 @@ class DocTestSiteFunctions
 
   # @return [Nothing]
   def go_to_healthcheck
-    @instance.webdriver.open("#{@instance.user_data.portal}/healthcheck")
+    @instance.webdriver.open("#{@instance.user_data.portal}healthcheck")
   end
 
   # @return [HealthcheckPage] page of healthcheck
