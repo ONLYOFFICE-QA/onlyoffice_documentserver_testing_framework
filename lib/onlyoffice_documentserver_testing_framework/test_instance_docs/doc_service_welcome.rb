@@ -28,6 +28,7 @@ class DocServiceWelcome
   # @return [Nothing]
   def go_to_example
     wait_load
+    @instance.selenium.wait_until_element_visible(@xpath_test_example)
     @instance.selenium.click_on_locator(@xpath_test_example)
     OnlyofficeLoggerHelper.log('Go to test example')
     @instance.doc_test_functions.wait_load
