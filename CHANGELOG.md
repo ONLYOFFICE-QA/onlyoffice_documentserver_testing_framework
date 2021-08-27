@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.6.2 (2021-08-27)
+
+### Fixes
+
 * Added wait until button "go to test example" visible.
 
 ## 0.6.1 (2021-08-16)
