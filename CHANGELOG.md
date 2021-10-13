@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Fix order of `comment` and `review` mode on test example
+
 ## 0.6.2 (2021-08-27)
 
 ### Fixes
