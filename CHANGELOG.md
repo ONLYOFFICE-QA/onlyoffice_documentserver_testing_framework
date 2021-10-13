@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.6.4 (2021-10-13)
+
+### Changes
+
+* Fix order of `view` mode and `embedded` mode
+
 ## 0.6.3 (2021-10-13)
 
 ### Changes

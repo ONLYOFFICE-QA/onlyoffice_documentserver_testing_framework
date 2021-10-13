@@ -109,8 +109,8 @@ class DocTestSiteFileListEntry
       review_mode: 5,
       fill_forms: 6,
       only_fill_forms: 7,
-      view_mode: 8,
-      embedded: 10
+      view_mode: 9,
+      embedded: 11
     }
   end
 end
