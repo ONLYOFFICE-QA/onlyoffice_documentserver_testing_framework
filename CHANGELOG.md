@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.6.3 (2021-10-13)
+
 ### Changes
 
 * Fix order of `comment` and `review` mode on test example
