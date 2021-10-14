@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.6.5 (2021-10-14)
+
+### Changes
+
+* Fix order `embedded` mode in test example
+
 ## 0.6.4 (2021-10-13)
 
 ### Changes
