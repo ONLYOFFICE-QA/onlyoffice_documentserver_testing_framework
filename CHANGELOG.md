@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.6.6 (2021-10-23)
+
+### Changes
+
+* Fix order `view` mode in test example
+
 ## 0.6.5 (2021-10-14)
 
 ### Changes
