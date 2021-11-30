@@ -116,7 +116,9 @@ GEM
     watir (6.19.1)
       regexp_parser (>= 1.2, < 3)
       selenium-webdriver (>= 3.142.7)
-    yard (0.9.26)
+    webrick (1.7.0)
+    yard (0.9.27)
+      webrick (~> 1.7.0)
     yml_reader (0.7)
 
 PLATFORMS
