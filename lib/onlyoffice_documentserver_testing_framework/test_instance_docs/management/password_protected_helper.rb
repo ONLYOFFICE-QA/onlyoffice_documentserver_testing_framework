@@ -13,9 +13,18 @@ module OnlyofficeDocumentserverTestingFramework
       "#{xpath_input_password}/../../../../../..//button"
     end
 
+    # @return [Boolean] check if incorrect password warning is shown
+    def incorrect_password_shown?
+      error_xpath = "#{xpath_input_password}/.."
+
+      @instance.webdriver.get_attribute(error_xpath, 'class').include?('error')
+    end
+
     # Handle some more alert dialogs
     def handle_password_protection(password)
       return unless @instance.selenium.element_visible?(xpath_input_password)
+
+      @instance.webdriver.webdriver_error("Cannot open file with password: `#{password}`") if incorrect_password_shown?
 
       @instance.selenium.type_text(xpath_input_password, password)
       @instance.selenium.click_on_locator(xpath_ok_password)
