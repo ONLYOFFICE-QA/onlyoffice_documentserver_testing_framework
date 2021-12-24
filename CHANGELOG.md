@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.7.0 (2021-12-24)
+
 ### New Features
 
 * Add ability to open password protected files
