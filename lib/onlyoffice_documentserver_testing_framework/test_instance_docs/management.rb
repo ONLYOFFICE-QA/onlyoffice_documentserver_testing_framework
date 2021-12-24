@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
 require_relative 'management/loader_helper'
+require_relative 'management/password_protected_helper'
 module OnlyofficeDocumentserverTestingFramework
   # Class for management main methods
   class Management
     include SeleniumWrapper
     include LoaderHelper
+    include PasswordProtectedHelper
 
     # @return [Integer] count of iframes to go into
     attr_accessor :xpath_iframe_count
     # @return [String] xpath to single iframe
     attr_accessor :xpath_iframe
+    # Set file password
+    attr_accessor :password
 
     def initialize(instance)
       @instance = instance
@@ -107,6 +111,7 @@ module OnlyofficeDocumentserverTestingFramework
           @instance.selenium.webdriver_error('Timeout for render file')
         end
         handle_alert_dialog
+        handle_password_protection(password)
         @instance.selenium.select_top_frame
         if permission_denied_message?
           @instance.selenium.webdriver_error('There is not enough access rights for document')
