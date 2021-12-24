@@ -30,7 +30,7 @@ GEM
     data_magic (1.2)
       faker (>= 1.1.2)
       yml_reader (>= 0.6)
-    diff-lcs (1.4.4)
+    diff-lcs (1.5.0)
     docile (1.4.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
