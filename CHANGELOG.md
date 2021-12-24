@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add ability to open password protected files
+
 ### Changes
 
 * Require `mfa` for releasing gem
