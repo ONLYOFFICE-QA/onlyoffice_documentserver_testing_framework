@@ -7,3 +7,8 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   NewCops: enable
+
+# Until https://github.com/rubocop/rubocop-performance/issues/278 is fixed
+Performance/StringIdentifierArgument:
+  Exclude:
+    - 'lib/onlyoffice_documentserver_testing_framework/test_instance_docs/doc_test_site_functions/doc_test_site_server_helper.rb'
