@@ -9,6 +9,7 @@
 ### Changes
 
 * Remove `ruby-2.5` from CI since it's EOLed
+* Remove support of `only_fill_forms_mode_url` since it was removed from DS
 
 ## 0.7.0 (2021-12-24)
 

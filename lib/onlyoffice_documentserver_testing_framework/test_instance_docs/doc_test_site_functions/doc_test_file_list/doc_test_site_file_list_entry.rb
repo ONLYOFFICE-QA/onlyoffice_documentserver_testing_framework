@@ -107,8 +107,7 @@ class DocTestSiteFileListEntry
     {
       comment_mode: 4,
       review_mode: 5,
-      fill_forms: 6,
-      only_fill_forms: 7,
+      fill_forms: 7,
       view_mode: 8,
       embedded: 10
     }
