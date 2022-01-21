@@ -5,6 +5,7 @@
 ### New Features
 
 * Use `ruby-3.1` in CI
+* Require `onlyoffice_webdriver_wrapper` >= 1.0.0
 
 ### Changes
 
