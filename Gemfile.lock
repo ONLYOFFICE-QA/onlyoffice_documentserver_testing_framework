@@ -1,22 +1,9 @@
-GIT
-  remote: https://github.com/ONLYOFFICE-QA/onlyoffice_webdriver_wrapper
-  revision: c9f99473092aefb8c929076a2151f8659d8865e1
-  branch: feature/webdriver-4
-  specs:
-    onlyoffice_webdriver_wrapper (0.22.1)
-      headless (~> 2)
-      onlyoffice_file_helper (~> 0)
-      onlyoffice_logger_helper (~> 1)
-      onlyoffice_s3_wrapper (~> 0, >= 0.5.0)
-      page-object (~> 2)
-      selenium-webdriver (~> 4)
-      watir (~> 7)
-
 PATH
   remote: .
   specs:
     onlyoffice_documentserver_testing_framework (0.7.0)
       onlyoffice_logger_helper (~> 1)
+      onlyoffice_webdriver_wrapper (~> 1)
 
 GEM
   remote: https://rubygems.org/
@@ -59,6 +46,14 @@ GEM
     onlyoffice_s3_wrapper (0.6.0)
       aws-sdk-s3 (~> 1)
       onlyoffice_file_helper (~> 0)
+    onlyoffice_webdriver_wrapper (1.0.0)
+      headless (~> 2)
+      onlyoffice_file_helper (~> 0)
+      onlyoffice_logger_helper (~> 1)
+      onlyoffice_s3_wrapper (~> 0, >= 0.5.0)
+      page-object (~> 2)
+      selenium-webdriver (~> 4)
+      watir (~> 7)
     overcommit (0.58.0)
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
@@ -132,7 +127,6 @@ PLATFORMS
 
 DEPENDENCIES
   onlyoffice_documentserver_testing_framework!
-  onlyoffice_webdriver_wrapper!
   overcommit (~> 0)
   rake (~> 13)
   rspec (~> 3)
