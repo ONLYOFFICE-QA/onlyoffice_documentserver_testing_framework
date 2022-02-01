@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name = OnlyofficeDocumentserverTestingFramework::Name::STRING
   s.version = OnlyofficeDocumentserverTestingFramework::Version::STRING
   s.platform = Gem::Platform::RUBY
-  s.required_ruby_version = '>= 2.5'
+  s.required_ruby_version = '>= 2.7'
   s.authors = ['ONLYOFFICE', 'Pavel Lobashov']
   s.summary = 'ONLYOFFICE DocumentServer testing framework'
   s.description = 'ONLYOFFICE DocumentServer testing framework, used in QA'

@@ -11,9 +11,9 @@ module OnlyofficeDocumentserverTestingFramework
     # @param name [Symbol] function to call
     # @param arguments [Hash] list of arguments
     # @return [Object] result of method
-    def selenium_functions(name, *arguments)
+    def selenium_functions(name, *arguments, **options)
       select_frame do
-        @instance.selenium.send name, *arguments
+        @instance.selenium.send name, *arguments, **options
       end
     end
 
