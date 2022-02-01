@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Drop support of `ruby-2.6`
+
 ## 1.0.0 (2022-01-21)
 
 ### New Features
