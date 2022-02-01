@@ -4,7 +4,7 @@
 
 ### Changes
 
-* Drop support of `ruby-2.6`
+* Drop support of `ruby-2.6`/ Fix compatibility with `ruby-3.1`
 
 ## 1.0.0 (2022-01-21)
 
