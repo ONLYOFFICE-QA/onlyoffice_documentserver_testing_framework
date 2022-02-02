@@ -5,6 +5,7 @@
 ### Changes
 
 * Drop support of `ruby-2.6`/ Fix compatibility with `ruby-3.1`
+* Remove `codeclimate` config since we don't use it any more
 
 ## 1.0.0 (2022-01-21)
 
