@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.0.0
+
 ### New Features
 
 * Add `yamllint` in CI
