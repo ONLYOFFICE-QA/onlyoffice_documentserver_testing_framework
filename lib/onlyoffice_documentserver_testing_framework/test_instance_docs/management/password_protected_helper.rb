@@ -10,7 +10,7 @@ module OnlyofficeDocumentserverTestingFramework
 
     # @return [String] xpath of ok in protected file dialog
     def xpath_ok_password
-      "#{xpath_input_password}/../../../../../..//button"
+      "#{xpath_input_password}/../../../../../..//button[@result='ok']"
     end
 
     # @return [Boolean] check if incorrect password warning is shown
