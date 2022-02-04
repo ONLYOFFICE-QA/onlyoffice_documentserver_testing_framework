@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 2.1.0 (2022-02-04)
+
+### New Features
+
+* Support of password protection window in DocumentServer v7.1
+
 ## 2.0.0
 
 ### New Features
