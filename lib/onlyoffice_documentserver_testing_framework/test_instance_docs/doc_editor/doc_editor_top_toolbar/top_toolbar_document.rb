@@ -7,7 +7,6 @@ module OnlyofficeDocumentserverTestingFramework
 
     def initialize(instance)
       @instance = instance
-      # TODO: Remove `or` - capability of DocumentServer 5.2 and 5.3
       @xpath_document_name = '//*[(@id="rib-doc-name") or (@id="title-doc-name")]'
     end
 
