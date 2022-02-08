@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    onlyoffice_documentserver_testing_framework (2.1.0)
+    onlyoffice_documentserver_testing_framework (2.2.0)
       onlyoffice_logger_helper (~> 1)
       onlyoffice_webdriver_wrapper (~> 1)
 
