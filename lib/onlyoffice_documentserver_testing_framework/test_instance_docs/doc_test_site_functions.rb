@@ -8,7 +8,7 @@ require_relative 'doc_test_site_functions/file_reopen_helper'
 class DocTestSiteFunctions
   extend DocTestSiteServerHelper
   include PageObject
-  include FileReopenHelper
+  include OnlyofficeDocumentserverTestingFramework::FileReopenHelper
 
   select_list(:user_list, xpath: '//*[@id="user"]')
   select_list(:language_list, xpath: '//*[@id="language"]')
