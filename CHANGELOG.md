@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.2.0 (2022-02-08)
+
 ### New Features
 
 * Correctly wait for file to be built (not for 60 second sleep)
