@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 require_relative 'management/loader_helper'
+require_relative 'management/manager_messages_checker'
 require_relative 'management/password_protected_helper'
 module OnlyofficeDocumentserverTestingFramework
   # Class for management main methods
   class Management
     include SeleniumWrapper
+    include ManagerMessagesChecker
     include LoaderHelper
     include PasswordProtectedHelper
 
@@ -169,24 +171,6 @@ module OnlyofficeDocumentserverTestingFramework
       end
     end
 
-    def permission_denied_message?
-      denied_xpath = '//div[contains(text(),"You don\'t have enough permission to view the file")]'
-      @instance.selenium.select_frame
-      error_on_loading = @instance.selenium.element_present?(denied_xpath)
-      @instance.selenium.select_top_frame
-      error_on_loading
-    end
-
-    def file_not_found_message?
-      message_xpath = '//div[contains(@class, "tooltip-inner") and '\
-                      'contains(text(),"The required file was not found")]'
-      @instance.selenium.select_frame
-      error_on_loading = @instance.selenium.element_visible?(message_xpath)
-      @instance.selenium.select_top_frame
-      OnlyofficeLoggerHelper.log("file_not_found_message is shown: #{error_on_loading}")
-      error_on_loading
-    end
-
     # Add js code to handle JS errors
     # @return [nil]
     def add_error_handler
@@ -220,6 +204,24 @@ module OnlyofficeDocumentserverTestingFramework
       return false if @instance.selenium.element_visible?(@xpath_anonymous_user_name_input)
 
       true
+    end
+
+    # Get name of currently opened document
+    # @param [Boolean] with_extension - should extension be included
+    # @return [String]
+    def document_name(with_extension: true)
+      doc_name = @instance.doc_editor.top_toolbar.top_toolbar.document_name
+      doc_name.chop! if status_save?(doc_name)
+      doc_name = File.basename(doc_name, '.*') unless with_extension
+      doc_name
+    end
+
+    # Check if document has not be saved until now
+    # @param [String] name of document
+    # @return [Boolean] result of that check
+    def status_save?(name = nil)
+      name ||= @instance.doc_editor.top_toolbar.top_toolbar.document_name
+      name[-1] == '*'
     end
   end
 end

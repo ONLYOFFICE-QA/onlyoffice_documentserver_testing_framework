@@ -3,10 +3,12 @@
 require_relative 'doc_test_site_functions/healthcheck_page'
 require_relative 'doc_test_site_functions/doc_test_file_list'
 require_relative 'doc_test_site_functions/doc_test_site_server_helper'
+require_relative 'doc_test_site_functions/file_reopen_helper'
 # Class to work with test examples
 class DocTestSiteFunctions
   extend DocTestSiteServerHelper
   include PageObject
+  include OnlyofficeDocumentserverTestingFramework::FileReopenHelper
 
   select_list(:user_list, xpath: '//*[@id="user"]')
   select_list(:language_list, xpath: '//*[@id="language"]')
@@ -215,15 +217,6 @@ class DocTestSiteFunctions
   # @return [HealthcheckPage] page of healthcheck
   def healthcheck
     @healthcheck = HealthcheckPage.new(@instance)
-  end
-
-  # Perform reopen after autosave
-  def reopen_after_autosave
-    url = @instance.selenium.get_url
-    @instance.go_to_base_url
-    sleep(60) # just a rough value for building document version
-    @instance.webdriver.open(url)
-    @instance.management.wait_for_operation_with_round_status_canvas
   end
 
   # @param [DocumentServerVersion] version of server
