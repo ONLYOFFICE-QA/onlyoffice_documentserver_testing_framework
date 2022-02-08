@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Correctly wait for file to be built (not for 60 second sleep)
+
 ### Fixes
 
 * Actualize `nodejs` version in CI
