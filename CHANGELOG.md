@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Check `dependabot` at 8:00 Moscow time daily
+
 ## 2.2.0 (2022-02-08)
 
 ### New Features
