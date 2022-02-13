@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.2.1 (2022-02-13)
+
 ### Fixes
 
 * Fix `IntegrationExampleApi#delete_file` for utf-8 file names
