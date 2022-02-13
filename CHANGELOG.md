@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Fixes
+
+* Fix `IntegrationExampleApi#delete_file` for utf-8 file names
+
 ### Changes
 
 * Check `dependabot` at 8:00 Moscow time daily
