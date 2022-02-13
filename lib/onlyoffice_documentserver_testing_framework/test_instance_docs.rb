@@ -21,7 +21,7 @@ module OnlyofficeDocumentserverTestingFramework
     # Initialize new instance
     # @param [OnlyofficeWebdriverWrapper::WebDriver] webdriver for test instance
     # @param [String] doc_server_base_url base url of DocumentServer
-    def initialize(webdriver: nil, doc_server_base_url: nil)
+    def initialize(webdriver: OnlyofficeWebdriverWrapper::WebDriver.new(:chrome), doc_server_base_url: nil)
       @selenium = webdriver
       @doc_server_base_url = doc_server_base_url
     end
