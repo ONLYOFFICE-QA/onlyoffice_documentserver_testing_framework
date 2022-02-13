@@ -36,4 +36,11 @@ describe OnlyofficeDocumentserverTestingFramework::TestInstanceDocs,
     instance.integration_example_api.delete_file(uploaded_name)
     expect(instance.integration_example_api.file_data(uploaded_name)).to be_nil
   end
+
+  it 'file with utf-8 name can be deleted' do
+    utf_8_name = "#{Dir.pwd}/spec/data/Pasiones Mediterráneas.txt"
+    uploaded_name = instance.integration_example_api.upload_file(utf_8_name)
+    instance.integration_example_api.delete_file(uploaded_name)
+    expect(instance.integration_example_api.file_data(uploaded_name)).to be_nil
+  end
 end
