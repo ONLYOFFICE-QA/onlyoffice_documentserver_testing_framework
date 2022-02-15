@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.3.0 (2022-02-15)
+
 ### New Features
 
 * Ability to specify `IntegrationExampleApi#api_endpoint`
