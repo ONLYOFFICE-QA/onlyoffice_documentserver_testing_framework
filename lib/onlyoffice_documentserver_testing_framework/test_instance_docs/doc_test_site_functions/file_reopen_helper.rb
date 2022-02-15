@@ -20,7 +20,8 @@ module OnlyofficeDocumentserverTestingFramework
       size_before = @instance.integration_example_api.file_data(file_name)['pureContentLength'].to_i
       @instance.go_to_base_url
       @instance.webdriver.wait_until do
-        @instance.integration_example_api.file_data(file_name)['pureContentLength'].to_i != size_before
+        file_data = @instance.integration_example_api.file_data(file_name)
+        !file_data.nil? && file_data['pureContentLength'].to_i != size_before
       end
       OnlyofficeLoggerHelper.log("File: `#{file_name}` was built after editing")
     end

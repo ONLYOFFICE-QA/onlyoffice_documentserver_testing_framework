@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Fixes
+
+* `leave_file_and_build_it` method should wait until file data is not empty
+
 ## 2.2.1 (2022-02-13)
 
 ### Fixes
