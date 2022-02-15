@@ -6,9 +6,12 @@ require 'net/http'
 module OnlyofficeDocumentserverTestingFramework
   # Class for working with integration example api
   class IntegrationExampleApi
-    def initialize(instance)
+    # @return [String] url of api endpoint
+    attr_reader :api_endpoint
+
+    def initialize(instance, api_endpoint: "#{instance.doc_server_base_url}/example")
       @instance = instance
-      @api_endpoint = "#{@instance.doc_server_base_url}/example"
+      @api_endpoint = api_endpoint
     end
 
     # @return [Array<Hash>] list of file on example

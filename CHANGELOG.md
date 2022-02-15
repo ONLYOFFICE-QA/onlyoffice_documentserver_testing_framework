@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Ability to specify `IntegrationExampleApi#api_endpoint`
+
 ### Fixes
 
 * `leave_file_and_build_it` method should wait until file data is not empty
