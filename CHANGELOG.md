@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.4.0 (2020-02-25)
+
 ### New Features
 
 * Allow to specify timeout for `FileReopenHelper#reopen_after_autosave`
