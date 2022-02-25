@@ -22,7 +22,7 @@ module OnlyofficeDocumentserverTestingFramework
       file_name = @instance.management.document_name
       size_before = @instance.integration_example_api.file_data(file_name)['pureContentLength'].to_i
       @instance.go_to_base_url
-      @instance.webdriver.wait_until(timeout, "File #{file_name} is not built in #{timeout}") do
+      @instance.webdriver.wait_until(timeout, "File `#{file_name}` is built") do
         file_data = @instance.integration_example_api.file_data(file_name)
         !file_data.nil? && file_data['pureContentLength'].to_i != size_before
       end
