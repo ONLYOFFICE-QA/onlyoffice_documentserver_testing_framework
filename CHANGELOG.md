@@ -2,11 +2,13 @@
 
 ## master (unreleased)
 
+## 2.4.1 (2022-02-25)
+
 ### Fixes
 
 * Correct failure message for `FileReopenHelper#reopen_after_autosave`
 
-## 2.4.0 (2020-02-25)
+## 2.4.0 (2022-02-25)
 
 ### New Features
 
