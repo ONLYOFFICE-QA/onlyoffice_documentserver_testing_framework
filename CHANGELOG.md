@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.5.0 (2022-03-04)
+
 ### New Features
 
 * `IntegrationExampleApi#delete_file` - new option `sleep_after_delete`
