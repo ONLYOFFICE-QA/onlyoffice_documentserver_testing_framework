@@ -36,15 +36,20 @@ module OnlyofficeDocumentserverTestingFramework
     end
 
     # Delete file on server by name
-    # @param [String] file_name
+    # @param [String] file_name name of file to delete
+    # @param [Integer] sleep_after_delete how much time to sleep after file delete
+    #   sometimes it took time to delete this file and it cannot be checked by `file_data`
+    #   method, since file will be not created but you get inside old file
     # @return [nil]
-    def delete_file(file_name)
+    def delete_file(file_name, sleep_after_delete: 3)
       raise 'File name is not found on server' unless file_data(file_name)
 
       url = URI::DEFAULT_PARSER.escape("#{@api_endpoint}/file?filename=#{file_name}")
       request = Net::HTTP::Delete.new(url)
       response = http_from_url(url).request(request)
-      JSON.parse(response.read_body)
+      result = JSON.parse(response.read_body)
+      sleep(sleep_after_delete)
+      result
     end
 
     # Get file data by it's name
