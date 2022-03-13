@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Fixes
+
+* Fix crash on fetching file list if there is a PDF
+
 ## 2.5.0 (2022-03-04)
 
 ### New Features
