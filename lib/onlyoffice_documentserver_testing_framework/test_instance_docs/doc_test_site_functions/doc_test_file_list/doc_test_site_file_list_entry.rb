@@ -21,13 +21,13 @@ class DocTestSiteFileListEntry
   def initialize(instance, xpath, edit_modes_indexes)
     @instance = instance
     @xpath_line = xpath
+    @edit_modes_indexes = edit_modes_indexes
     @file_name = fetch_file_name
     @embedded_url = fetch_embedded_url
     @review_mode_url = fetch_review_mode_url
     @comment_mode_url = fetch_comment_mode_url
     @fill_forms_mode_url = fetch_fill_forms_mode_url
     @view_mode_url = fetch_view_mode_url
-    @edit_modes_indexes = edit_modes_indexes
   end
 
   # Compare two DocTestSiteFileListEntry
