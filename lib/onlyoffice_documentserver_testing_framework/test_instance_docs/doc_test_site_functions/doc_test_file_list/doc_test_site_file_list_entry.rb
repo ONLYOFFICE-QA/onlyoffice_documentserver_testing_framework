@@ -18,7 +18,7 @@ class DocTestSiteFileListEntry
   # @return [String] View mode url
   attr_accessor :view_mode_url
 
-  def initialize(instance, xpath)
+  def initialize(instance, xpath, edit_modes_indexes)
     @instance = instance
     @xpath_line = xpath
     @file_name = fetch_file_name
@@ -27,6 +27,7 @@ class DocTestSiteFileListEntry
     @comment_mode_url = fetch_comment_mode_url
     @fill_forms_mode_url = fetch_fill_forms_mode_url
     @view_mode_url = fetch_view_mode_url
+    @edit_modes_indexes = edit_modes_indexes
   end
 
   # Compare two DocTestSiteFileListEntry
@@ -44,7 +45,7 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on review mode
   def fetch_review_mode_url
-    xpath_review = "#{@xpath_line}/td[#{mode_indexes[:review_mode]}]/a"
+    xpath_review = "#{@xpath_line}/td[#{@edit_modes_indexes[:review_mode]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_review)
 
     url = @instance.selenium.get_attribute(xpath_review, 'href')
@@ -54,7 +55,7 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on review mode
   def fetch_comment_mode_url
-    xpath_comment = "#{@xpath_line}/td[#{mode_indexes[:comment_mode]}]/a"
+    xpath_comment = "#{@xpath_line}/td[#{@edit_modes_indexes[:comment_mode]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_comment)
 
     url = @instance.selenium.get_attribute(xpath_comment, 'href')
@@ -64,7 +65,7 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on fill forms mode
   def fetch_fill_forms_mode_url
-    xpath_comment = "#{@xpath_line}/td[#{mode_indexes[:fill_forms]}]/a"
+    xpath_comment = "#{@xpath_line}/td[#{@edit_modes_indexes[:fill_forms]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_comment)
 
     url = @instance.selenium.get_attribute(xpath_comment, 'href')
@@ -74,7 +75,7 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on fill forms mode
   def fetch_only_fill_forms_mode_url
-    link_xpath = "#{@xpath_line}/td[#{mode_indexes[:only_fill_forms]}]/a"
+    link_xpath = "#{@xpath_line}/td[#{@edit_modes_indexes[:only_fill_forms]}]/a"
     return nil unless @instance.selenium.element_present?(link_xpath)
 
     url = @instance.selenium.get_attribute(link_xpath, 'href')
@@ -84,7 +85,7 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on viewer mode
   def fetch_view_mode_url
-    xpath_comments = "#{@xpath_line}/td[#{mode_indexes[:view_mode]}]/a"
+    xpath_comments = "#{@xpath_line}/td[#{@edit_modes_indexes[:view_mode]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_comments)
 
     url = @instance.selenium.get_attribute(xpath_comments, 'href')
@@ -94,25 +95,11 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on embedded file
   def fetch_embedded_url
-    xpath_embedded = "#{@xpath_line}/td[#{mode_indexes[:embedded]}]/a"
+    xpath_embedded = "#{@xpath_line}/td[#{@edit_modes_indexes[:embedded]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_embedded)
 
     url = @instance.selenium.get_attribute(xpath_embedded, 'href')
     OnlyofficeLoggerHelper.log("Got embedded #{@xpath_line} url: #{url}")
     url
-  end
-
-  private
-
-  # Indexes of different modes
-  # @return [Hash] name with index
-  def mode_indexes
-    {
-      comment_mode: 4,
-      review_mode: 5,
-      fill_forms: 7,
-      view_mode: 8,
-      embedded: 10
-    }
   end
 end

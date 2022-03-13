@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* New Option to send custom modes indexes to `DocTestSiteFunctions`
+
 ### Fixes
 
 * Fix crash on fetching file list if there is a PDF
