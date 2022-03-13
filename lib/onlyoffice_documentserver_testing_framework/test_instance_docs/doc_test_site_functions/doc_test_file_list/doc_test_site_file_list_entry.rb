@@ -108,9 +108,9 @@ class DocTestSiteFileListEntry
   # @return [Hash] name with index
   def mode_indexes
     {
-      comment_mode: 4,
-      review_mode: 5,
-      fill_forms: 7,
+      comment_mode: 3,
+      review_mode: 4,
+      fill_forms: 6,
       view_mode: 8,
       embedded: 10
     }

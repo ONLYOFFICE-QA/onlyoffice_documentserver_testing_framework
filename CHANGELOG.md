@@ -6,6 +6,10 @@
 
 * Fix crash on fetching file list if there is a PDF
 
+### Changes
+
+* Actualize modes numbers according to DocumentServer v7.1
+
 ## 2.5.0 (2022-03-04)
 
 ### New Features
