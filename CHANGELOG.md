@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.6.0 (2022-03-13)
+
 ### New Features
 
 * New Option to send custom modes indexes to `DocTestSiteFunctions`
