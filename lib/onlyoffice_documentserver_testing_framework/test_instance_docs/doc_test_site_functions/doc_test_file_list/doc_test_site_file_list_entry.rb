@@ -94,7 +94,10 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on embedded file
   def fetch_embedded_url
-    url = @instance.selenium.get_attribute("#{@xpath_line}/td[#{mode_indexes[:embedded]}]/a", 'href')
+    xpath_embedded = "#{@xpath_line}/td[#{mode_indexes[:embedded]}]/a"
+    return nil unless @instance.selenium.element_present?(xpath_embedded)
+
+    url = @instance.selenium.get_attribute(xpath_embedded, 'href')
     OnlyofficeLoggerHelper.log("Got embedded #{@xpath_line} url: #{url}")
     url
   end
