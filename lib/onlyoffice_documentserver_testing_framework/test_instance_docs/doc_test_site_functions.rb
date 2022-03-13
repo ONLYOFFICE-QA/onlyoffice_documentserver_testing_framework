@@ -13,7 +13,7 @@ class DocTestSiteFunctions
   select_list(:user_list, xpath: '//*[@id="user"]')
   select_list(:language_list, xpath: '//*[@id="language"]')
 
-  def initialize(instance)
+  def initialize(instance, edit_modes_indexes = default_modes_indexes)
     super(instance.webdriver.driver)
     @instance = instance
     @xpath_begin_view = '//*[@id="beginView"]'
@@ -27,6 +27,7 @@ class DocTestSiteFunctions
                              '//*[contains(@class, "try-editor cell")]'
     @xpath_create_presentation = '//*[contains(@class, "try-editor presentation")]|'\
                                  '//*[contains(@class, "try-editor slide")]'
+    @edit_modes_indexes = edit_modes_indexes
   end
 
   # Waiting for load of page
@@ -168,7 +169,9 @@ class DocTestSiteFunctions
   def uploaded_file_list
     file_list = []
     (0...uploaded_file_count).each do |current_file_number|
-      file_list << DocTestSiteFileListEntry.new(@instance, "#{@xpath_file_entry}[#{current_file_number + 1}]")
+      file_list << DocTestSiteFileListEntry.new(@instance,
+                                                "#{@xpath_file_entry}[#{current_file_number + 1}]",
+                                                @edit_modes_indexes)
     end
     DocTestFileList.new(file_list)
   end
@@ -231,5 +234,19 @@ class DocTestSiteFunctions
                    '/test_instance_docs/doc_test_site_functions/'\
                    "#{file}")
         .map(&:strip)
+  end
+
+  private
+
+  # Indexes of different modes
+  # @return [Hash] name with index
+  def default_modes_indexes
+    {
+      comment_mode: 4,
+      review_mode: 5,
+      fill_forms: 7,
+      view_mode: 8,
+      embedded: 10
+    }
   end
 end
