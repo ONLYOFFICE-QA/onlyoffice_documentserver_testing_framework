@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Add new integration example languages since v7.1
+
 ## 2.6.0 (2022-03-13)
 
 ### New Features
