@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Fixes
+
+* Fix typo in language file
+
 ## 2.7.0 (2022-04-12)
 
 ### Changes
