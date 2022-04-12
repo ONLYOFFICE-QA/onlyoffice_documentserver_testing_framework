@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.7.1 (2022-04-12)
+
 ### Fixes
 
 * Fix typo in language file
