@@ -223,5 +223,21 @@ module OnlyofficeDocumentserverTestingFramework
       name ||= @instance.doc_editor.top_toolbar.top_toolbar.document_name
       name[-1] == '*'
     end
+
+    # Check if opened document is in viewer
+    # @return [true, false] true if viewer, false if editor
+    def viewer?
+      canvas_loaded = canvas_editor?
+      tabs_present = @instance.doc_editor.top_toolbar.home_tab.present?
+      result = canvas_loaded && !tabs_present
+      OnlyofficeLoggerHelper.log("viewer?: #{result}")
+      result
+    end
+
+    # Check if opened editor is canvas editor
+    # @return [true, false] true if canvas, false if not canvas
+    def canvas_editor?
+      visible?('//*[@id="id_viewer"]') || visible?('//*[@id="ws-canvas"]')
+    end
   end
 end
