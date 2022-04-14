@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `Management#viewer?` method and all code related to it
+
 ## 2.7.1 (2022-04-12)
 
 ### Fixes
