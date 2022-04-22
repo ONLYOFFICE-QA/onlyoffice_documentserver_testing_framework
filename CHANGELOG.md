@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Fix `rubocop-1.28.1` code issues
+
 ## 2.8.0 (2022-04-14)
 
 ### New Features

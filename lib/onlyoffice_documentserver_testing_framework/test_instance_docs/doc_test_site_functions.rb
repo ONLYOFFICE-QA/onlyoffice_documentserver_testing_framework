@@ -57,7 +57,7 @@ class DocTestSiteFunctions
   # Upload file to portal
   # @param [String] file_path like as '/mnt/data_share/Files/DOCX/empty.docx'
   def upload_file(file_path)
-    file_path_absolute = file_path.gsub('~', ENV['HOME'])
+    file_path_absolute = file_path.gsub('~', Dir.home)
     @instance.selenium.type_to_locator('//*[@id="fileupload"]', file_path_absolute, false, false, false, true)
     wait_loading_file
     wait_conversion
