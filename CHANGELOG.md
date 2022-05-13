@@ -5,6 +5,7 @@
 ### Changes
 
 * Fix `rubocop-1.28.1` code issues
+* Actualize xpath and version for DocumentServer v7.1 release
 
 ## 2.8.0 (2022-04-14)
 
