@@ -116,13 +116,6 @@ module OnlyofficeDocumentserverTestingFramework
       selenium_functions(:get_attribute, xpath, 'class').include?('disabled')
     end
 
-    # Move to element
-    # @param xpath [String] xpath to move
-    # @return [nil]
-    def move_to_element(xpath)
-      selenium_functions :move_to_element_by_locator, xpath
-    end
-
     # Remove element
     # @param xpath [String] xpath to remove
     # @return [nil]
