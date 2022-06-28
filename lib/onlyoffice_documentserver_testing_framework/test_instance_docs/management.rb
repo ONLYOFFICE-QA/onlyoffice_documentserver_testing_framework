@@ -22,7 +22,7 @@ module OnlyofficeDocumentserverTestingFramework
       @instance = instance
       @xpath_iframe_count = 1
       # Don't mixup iframe with help
-      @xpath_iframe = '//iframe[not(contains(@src, "/help/")) and '\
+      @xpath_iframe = '//iframe[not(contains(@src, "/help/")) and ' \
                       'not(contains(@id, "fileFrame"))]'
       @alert_dialog_xpath = '//div[@role="alertdialog"]'
       @alert_dialog_span_xpath = "#{@alert_dialog_xpath}/div/div/div/span"
@@ -33,7 +33,7 @@ module OnlyofficeDocumentserverTestingFramework
     # @return [Boolean] check if loader present
     def loading_present?
       if @instance.webdriver.alert_exists?
-        raise 'Service Unavailable. There is alert while loading docs: '\
+        raise 'Service Unavailable. There is alert while loading docs: ' \
               "\"#{@instance.webdriver.alert_text}\""
       end
 
@@ -76,7 +76,7 @@ module OnlyofficeDocumentserverTestingFramework
       while timer < timeout && !loading_present?
         sleep 1
         timer += 1
-        OnlyofficeLoggerHelper.log('Waiting for start loading of documents. '\
+        OnlyofficeLoggerHelper.log('Waiting for start loading of documents. ' \
                                    "Waiting for #{timer} seconds of #{timeout}")
       end
       return unless timer == timeout
@@ -98,8 +98,8 @@ module OnlyofficeDocumentserverTestingFramework
       while loading_present?
         sleep(1)
         current_wait_time += 1
-        OnlyofficeLoggerHelper.log('Waiting for Round Status for '\
-                                   "#{current_wait_time} of "\
+        OnlyofficeLoggerHelper.log('Waiting for Round Status for ' \
+                                   "#{current_wait_time} of " \
                                    "#{timeout_in_seconds} timeout")
         @instance.doc_editor.windows.txt_options.txt_options = 'Unicode (UTF-8)'
         @instance.spreadsheet_editor.windows.csv_option.csv_options = options
@@ -174,8 +174,8 @@ module OnlyofficeDocumentserverTestingFramework
     # Add js code to handle JS errors
     # @return [nil]
     def add_error_handler
-      js_handler = 'window.jsErrors = [];'\
-                   'window.onerror = function(errorMessage) '\
+      js_handler = 'window.jsErrors = [];' \
+                   'window.onerror = function(errorMessage) ' \
                    '{window.jsErrors[window.jsErrors.length] = errorMessage;}'
       @instance.selenium.select_frame @instance.management.xpath_iframe
       @instance.selenium.execute_javascript(js_handler)

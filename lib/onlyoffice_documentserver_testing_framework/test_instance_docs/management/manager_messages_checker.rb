@@ -14,7 +14,7 @@ module OnlyofficeDocumentserverTestingFramework
 
     # @return [Boolean] is `File not found` message shown
     def file_not_found_message?
-      message_xpath = '//div[contains(@class, "tooltip-inner") and '\
+      message_xpath = '//div[contains(@class, "tooltip-inner") and ' \
                       'contains(text(),"The required file was not found")]'
       @instance.selenium.select_frame
       error_on_loading = @instance.selenium.element_visible?(message_xpath)

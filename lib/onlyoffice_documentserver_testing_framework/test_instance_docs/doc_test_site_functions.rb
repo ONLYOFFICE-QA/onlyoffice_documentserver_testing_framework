@@ -21,11 +21,11 @@ class DocTestSiteFunctions
     @xpath_conversion_step = '//*[@id="step2"]'
     @xpath_editor_scripts_step = '//*[@id="step3"]'
     @xpath_file_entry = '//*[@class="stored-list"]//table/tbody/tr'
-    @xpath_create_doc = '//*[contains(@class, "try-editor document")]|'\
+    @xpath_create_doc = '//*[contains(@class, "try-editor document")]|' \
                         '//*[contains(@class, "try-editor word")]'
-    @xpath_create_workbook = '//*[contains(@class, "try-editor spreadsheet")]|'\
+    @xpath_create_workbook = '//*[contains(@class, "try-editor spreadsheet")]|' \
                              '//*[contains(@class, "try-editor cell")]'
-    @xpath_create_presentation = '//*[contains(@class, "try-editor presentation")]|'\
+    @xpath_create_presentation = '//*[contains(@class, "try-editor presentation")]|' \
                                  '//*[contains(@class, "try-editor slide")]'
     @edit_modes_indexes = edit_modes_indexes
   end
@@ -72,7 +72,7 @@ class DocTestSiteFunctions
 
     return if error_message.empty?
 
-    @instance.selenium.webdriver_error('Error while uploading document. '\
+    @instance.selenium.webdriver_error('Error while uploading document. ' \
                                        "Error message: #{error_message}")
   end
 
@@ -232,8 +232,8 @@ class DocTestSiteFunctions
            else
              'doc_test_site_languages_before_6_2.list'
            end
-    File.readlines("#{File.expand_path('..', __dir__)}"\
-                   '/test_instance_docs/doc_test_site_functions/'\
+    File.readlines("#{File.expand_path('..', __dir__)}" \
+                   '/test_instance_docs/doc_test_site_functions/' \
                    "languages_list/#{file}")
         .map(&:strip)
   end
