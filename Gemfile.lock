@@ -101,8 +101,8 @@ GEM
       rubocop-ast (>= 0.4.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (2.11.1)
-      rubocop (~> 1.19)
+    rubocop-rspec (2.12.1)
+      rubocop (~> 1.31)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.3.0)
@@ -142,4 +142,4 @@ DEPENDENCIES
   yard (~> 0, >= 0.9.20)
 
 BUNDLED WITH
-   2.3.16
+   2.3.17
