@@ -11,7 +11,7 @@ module OnlyofficeDocumentserverTestingFramework
 
     def initialize(instance, api_endpoint: "#{instance.doc_server_base_url}/example")
       @instance = instance
-      @api_endpoint = api_endpoint
+      @api_endpoint = remove_example_suffix(api_endpoint)
     end
 
     # @return [Array<Hash>] list of file on example
@@ -70,6 +70,23 @@ module OnlyofficeDocumentserverTestingFramework
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true if uri.scheme == 'https'
       http
+    end
+
+    # Check if example url need to be removed with
+    # /example
+    # For example test example may be on `http://100.100.100.100` host
+    # or can be on `http://100.100.100.100/example` host
+    # This method will detect which to use
+    # @param [String] example_url via config
+    # @return [String] example url with correct url
+    def remove_example_suffix(example_url)
+      without_suffix = example_url.gsub('/example', '')
+      source = URI.parse(without_suffix).open.read
+      return without_suffix if source.include?('John Smith')
+
+      example_url
+    rescue Errno::ECONNREFUSED, Errno::ENOENT, NoMethodError
+      example_url
     end
   end
 end

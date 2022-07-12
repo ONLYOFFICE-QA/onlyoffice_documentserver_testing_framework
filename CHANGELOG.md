@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* `IntegrationExampleApi` can automatically remove `/example` suffix if needed
+
 ### Changes
 
 * Fix `rubocop-1.28.1` code issues
