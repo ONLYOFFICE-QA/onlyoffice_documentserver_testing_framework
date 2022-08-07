@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add support of interface languages in `example` in v7.2
+
 ### Changes
 
 * Fix `rubocop-1.28.1` code issues
