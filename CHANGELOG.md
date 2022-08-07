@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.9.0 (2022-08-07)
+
 ### New Features
 
 * Add support of interface languages in `example` in v7.2

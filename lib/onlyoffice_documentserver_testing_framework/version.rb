@@ -4,6 +4,6 @@ module OnlyofficeDocumentserverTestingFramework
   # Module to hold version of Gem
   module Version
     # [String] version of gem
-    STRING = '2.8.0'
+    STRING = '2.9.0'
   end
 end
