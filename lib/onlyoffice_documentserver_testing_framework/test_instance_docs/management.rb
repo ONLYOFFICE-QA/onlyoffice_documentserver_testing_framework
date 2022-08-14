@@ -185,7 +185,7 @@ module OnlyofficeDocumentserverTestingFramework
     # @return [Symbol] editor typo of opened document
     def editor_type
       @instance.selenium.select_top_frame
-      url = selenium_functions(:get_url)
+      url = selenium_functions(:current_url)
       case url
       when /documenteditor/
         :document

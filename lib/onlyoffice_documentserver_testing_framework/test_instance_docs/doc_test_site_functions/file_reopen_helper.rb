@@ -7,7 +7,7 @@ module OnlyofficeDocumentserverTestingFramework
     # @param [Integer] timeout for wait for file to build
     # @return [Boolean] result of opening
     def reopen_after_autosave(timeout: 30)
-      url = @instance.selenium.get_url
+      url = @instance.selenium.current_url
       leave_file_and_build_it(timeout: timeout)
       @instance.webdriver.open(url)
       @instance.management.wait_for_operation_with_round_status_canvas
