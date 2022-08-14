@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Replace deprecated method from `OnlyofficeWebdriverWrapper` update v1.10.0
+
 ## 2.9.0 (2022-08-07)
 
 ### New Features
