@@ -5,6 +5,8 @@
 ### Changes
 
 * Replace deprecated method from `OnlyofficeWebdriverWrapper` update v1.10.0
+* Remove calls to `WebDriver#wait_element` since it's not raise error if element
+  not shown
 
 ## 2.9.0 (2022-08-07)
 

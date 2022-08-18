@@ -91,8 +91,8 @@ module OnlyofficeDocumentserverTestingFramework
     # @param xpath [String] xpath to click
     # @return [nil]
     def click_on_displayed_button(xpath)
-      selenium_functions :wait_element, xpath
-      selenium_functions :click_on_displayed, xpath
+      selenium_functions(:wait_until_element_visible, xpath)
+      selenium_functions(:click_on_displayed, xpath)
     end
 
     # Is line enabled
