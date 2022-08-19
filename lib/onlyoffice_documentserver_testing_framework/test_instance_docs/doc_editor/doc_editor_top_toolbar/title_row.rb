@@ -27,6 +27,15 @@ module OnlyofficeDocumentserverTestingFramework
       name[-1] == '*'
     end
 
+    # Rename current document
+    # @param [String] new_name to rename
+    # @return [nil]
+    def rename(new_name)
+      selenium_functions(:type_to_locator, @xpath_document_name, "#{new_name}\n", true, true)
+      OnlyofficeLoggerHelper.log("Renamed document to `#{new_name}` name")
+      OnlyofficeLoggerHelper.sleep_and_log('Wait for rename to complete', 5)
+    end
+
     private
 
     # @return [String] raw data from document name
