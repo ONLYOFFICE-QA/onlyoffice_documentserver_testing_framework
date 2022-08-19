@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.11.0 (2022-08-19)
+
 ### New Features
 
 * Add ability to rename file from top toolbar (Since DocumentServer v7.2)
