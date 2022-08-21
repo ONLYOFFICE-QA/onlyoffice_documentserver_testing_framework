@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.12.0 (2022-08-21)
+
 ### Changes
 
 * Ignore `.rake_tasks~` autocomplete file
