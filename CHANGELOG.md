@@ -5,6 +5,7 @@
 ### Changes
 
 * Ignore `.rake_tasks~` autocomplete file
+* `click_on_displayed_button` do not wait for button to appear
 
 ## 2.11.0 (2022-08-19)
 
