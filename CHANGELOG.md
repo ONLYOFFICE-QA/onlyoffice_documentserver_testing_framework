@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* `DocTestSiteFunctions#current_document_storage_url'` can handle v7.2 urls
+
 ## 2.12.0 (2022-08-21)
 
 ### Changes

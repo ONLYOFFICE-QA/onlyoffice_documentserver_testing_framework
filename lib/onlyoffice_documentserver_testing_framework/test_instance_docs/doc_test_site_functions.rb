@@ -152,7 +152,8 @@ class DocTestSiteFunctions
   def current_document_storage_url
     page_source = @instance.selenium.page_source
     url_line = page_source.scan(/"?url"?: ".*$/).first
-    url_line.delete('"').gsub('url: ', '').chop
+    pretty_url = url_line.delete('"').gsub('url: ', '').chop
+    pretty_url.gsub(/&useraddress=.*/, '')
   end
 
   # @return [True, False] is on file list page now?
