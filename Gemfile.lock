@@ -47,7 +47,7 @@ GEM
     onlyoffice_s3_wrapper (1.0.0)
       aws-sdk-s3 (~> 1)
       onlyoffice_file_helper (< 2)
-    onlyoffice_webdriver_wrapper (1.11.0)
+    onlyoffice_webdriver_wrapper (1.12.0)
       headless (~> 2)
       onlyoffice_file_helper (< 2)
       onlyoffice_logger_helper (~> 1)
