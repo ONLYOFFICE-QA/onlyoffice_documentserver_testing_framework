@@ -26,7 +26,7 @@ GEM
     aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
     childprocess (4.1.0)
-    concurrent-ruby (1.2.0)
+    concurrent-ruby (1.2.2)
     data_magic (1.2)
       faker (>= 1.1.2)
       yml_reader (>= 0.6)
