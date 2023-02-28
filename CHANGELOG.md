@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add ability to open files with external links (Since DocumentServer v7.3)
+
 ## 2.13.0 (2022-09-16)
 
 ### Changes
