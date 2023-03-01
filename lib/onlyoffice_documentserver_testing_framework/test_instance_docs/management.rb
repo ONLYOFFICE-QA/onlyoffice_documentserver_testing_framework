@@ -3,6 +3,7 @@
 require_relative 'management/loader_helper'
 require_relative 'management/manager_messages_checker'
 require_relative 'management/password_protected_helper'
+require_relative 'management/update_links_helper'
 module OnlyofficeDocumentserverTestingFramework
   # Class for management main methods
   class Management
@@ -10,6 +11,7 @@ module OnlyofficeDocumentserverTestingFramework
     include ManagerMessagesChecker
     include LoaderHelper
     include PasswordProtectedHelper
+    include UpdateLinksHelper
 
     # @return [Integer] count of iframes to go into
     attr_accessor :xpath_iframe_count
@@ -17,6 +19,8 @@ module OnlyofficeDocumentserverTestingFramework
     attr_accessor :xpath_iframe
     # Set file password
     attr_accessor :password
+    # Set if should update links
+    attr_accessor :to_update
 
     def initialize(instance)
       @instance = instance
@@ -28,6 +32,7 @@ module OnlyofficeDocumentserverTestingFramework
       @alert_dialog_span_xpath = "#{@alert_dialog_xpath}/div/div/div/span"
       @xpath_window_modal = "//div[contains(@class, 'asc-window modal')]"
       @xpath_anonymous_user_name_input = '//div[@id="id-dlg-username-caption"]'
+      @to_update = false
     end
 
     # @return [Boolean] check if loader present
@@ -105,6 +110,7 @@ module OnlyofficeDocumentserverTestingFramework
         @instance.spreadsheet_editor.windows.csv_option.csv_options = options
 
         check_2_5_version_error
+        handle_update_links_message(to_update)
         handle_error
 
         # Close 'Select Encoding' dialog if present
