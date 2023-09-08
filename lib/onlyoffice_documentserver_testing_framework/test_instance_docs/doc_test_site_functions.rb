@@ -228,7 +228,7 @@ class DocTestSiteFunctions
   def self.supported_languages(version = OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 4, 0))
     file = if version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 4)
              'doc_test_site_languages_after_7_4.list'
-           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 2)
+           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 3)
              'doc_test_site_languages_after_7_3.list'
            elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 2)
              'doc_test_site_languages_after_7_2.list'
