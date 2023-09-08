@@ -9,6 +9,7 @@
 ### Changes
 
 * Drop `ruby-2.7` support since it's EOLed
+* Add language list for DocumentServer v7.4
 
 ## 2.14.0 (2023-03-01)
 
