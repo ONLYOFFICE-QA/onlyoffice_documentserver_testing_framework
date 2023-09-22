@@ -131,7 +131,7 @@ GEM
     watir (7.3.0)
       regexp_parser (>= 1.2, < 3)
       selenium-webdriver (~> 4.2)
-    websocket (1.2.9)
+    websocket (1.2.10)
     yard (0.9.34)
     yml_reader (0.7)
 
