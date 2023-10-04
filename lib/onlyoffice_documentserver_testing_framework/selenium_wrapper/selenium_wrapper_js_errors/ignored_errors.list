@@ -29,3 +29,4 @@ ResponsiveVoice missing API key
 /libfont/wasm/
 UserControls/Management
 clientscript/
+was loaded over an insecure connection. This file should be served over HTTPS.
