@@ -10,6 +10,7 @@
 
 * Drop `ruby-2.7` support since it's EOLed
 * Add language list for DocumentServer v7.4
+* Adapt tests to DocumentServer v7.5 - filling forms are only for *.oform file
 
 ## 2.14.0 (2023-03-01)
 

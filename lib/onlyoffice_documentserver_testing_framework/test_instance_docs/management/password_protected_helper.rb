@@ -26,8 +26,12 @@ module OnlyofficeDocumentserverTestingFramework
 
       @instance.webdriver.webdriver_error("Cannot open file with password: `#{password}`") if incorrect_password_shown?
 
-      @instance.selenium.type_text(xpath_input_password, password)
-      @instance.selenium.click_on_locator(xpath_ok_password)
+      # This is stage way to enter password, but
+      # for some reason entering it and clicking on Ok no longer works
+      # Not sure if it is webdriver or DocumentServer issue
+      # Current variant should work rather ok
+      @instance.selenium.send_keys_to_focused_elements("#{password}\n")
+      OnlyofficeLoggerHelper.log('Entered password in password dialog and pressed enter')
     end
   end
 end

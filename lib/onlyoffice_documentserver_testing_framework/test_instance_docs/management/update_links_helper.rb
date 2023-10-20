@@ -20,12 +20,12 @@ module OnlyofficeDocumentserverTestingFramework
 
     # Handle update links dialog
     def handle_update_links_message(to_update)
-      return unless @instance.selenium.element_visible?(update_links_message_xpath)
+      return unless selenium_functions(:element_visible?, update_links_message_xpath)
 
       if to_update
-        @instance.selenium.click_on_locator(xpath_update_button)
+        selenium_functions(:click_on_locator, xpath_update_button, true)
       else
-        @instance.selenium.click_on_locator(xpath_do_not_update_button)
+        selenium_functions(:click_on_locator, xpath_do_not_update_button, true)
       end
     end
   end
