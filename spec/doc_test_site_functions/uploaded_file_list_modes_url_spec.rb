@@ -14,6 +14,7 @@ describe DocTestSiteFunctions,
   end
 
   it 'fill form url is correct' do
+    instance.doc_test_functions.reload
     fill_form_url = instance.doc_test_functions.uploaded_file_list[0].fill_forms_mode_url
     expect(fill_form_url).to include('mode=fillForms')
   end
