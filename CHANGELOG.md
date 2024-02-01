@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Adapt tests to DocumentServer v8.0
+
 ## 2.15.0 (2023-11-03)
 
 ### New Features
