@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `ruby-3.3` to CI
+
 ### Changes
 
 * Adapt tests to DocumentServer v8.0
