@@ -7,6 +7,7 @@
 * Add `ruby-3.3` to CI
 * Add `dependabot check` for `GitHub Actions`
 * Add support of `codecov` coverage reports
+* Add ability to enter password on conversion step in DocumentServer
 
 ### Changes
 

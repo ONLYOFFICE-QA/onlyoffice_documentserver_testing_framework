@@ -4,11 +4,13 @@ require_relative 'doc_test_site_functions/healthcheck_page'
 require_relative 'doc_test_site_functions/doc_test_file_list'
 require_relative 'doc_test_site_functions/doc_test_site_server_helper'
 require_relative 'doc_test_site_functions/file_reopen_helper'
+require_relative 'doc_test_site_functions/password_protected_conversion_helper'
 # Class to work with test examples
 class DocTestSiteFunctions
   extend DocTestSiteServerHelper
   include PageObject
   include OnlyofficeDocumentserverTestingFramework::FileReopenHelper
+  include OnlyofficeDocumentserverTestingFramework::PasswordProtectedConversionHelper
 
   select_list(:user_list, xpath: '//*[@id="user"]')
   select_list(:language_list, xpath: '//*[@id="language"]')
@@ -96,6 +98,9 @@ class DocTestSiteFunctions
       OnlyofficeLoggerHelper.log("Waiting for file conversion for #{current_time} seconds")
       return true if @instance.selenium.get_attribute(@xpath_conversion_step, 'class').include?('done')
 
+      if @instance.selenium.element_visible?(xpath_input_password)
+        handle_password_protection(@instance.management.password)
+      end
       sleep 1
       check_error
     end
