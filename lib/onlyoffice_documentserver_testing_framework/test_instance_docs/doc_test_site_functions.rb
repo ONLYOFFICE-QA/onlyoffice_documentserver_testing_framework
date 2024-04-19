@@ -173,11 +173,10 @@ class DocTestSiteFunctions
 
   # @return [DocTestFileLIst] get file list
   def uploaded_file_list
-    file_list = []
-    (0...uploaded_file_count).each do |current_file_number|
-      file_list << DocTestSiteFileListEntry.new(@instance,
-                                                "#{@xpath_file_entry}[#{current_file_number + 1}]",
-                                                @edit_modes_indexes)
+    file_list = (0...uploaded_file_count).map do |current_file_number|
+      DocTestSiteFileListEntry.new(@instance,
+                                   "#{@xpath_file_entry}[#{current_file_number + 1}]",
+                                   @edit_modes_indexes)
     end
     DocTestFileList.new(file_list)
   end

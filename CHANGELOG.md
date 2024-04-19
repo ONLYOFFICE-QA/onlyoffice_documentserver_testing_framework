@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Changes from `rubocop-1.63.2` update
+
 ## 2.16.0 (2024-02-21)
 
 ### New Features
