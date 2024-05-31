@@ -33,7 +33,7 @@ GEM
       yml_reader (>= 0.6)
     diff-lcs (1.5.1)
     docile (1.4.0)
-    faker (3.3.1)
+    faker (3.4.1)
       i18n (>= 1.8.11, < 2)
     headless (2.3.1)
     i18n (1.14.5)
