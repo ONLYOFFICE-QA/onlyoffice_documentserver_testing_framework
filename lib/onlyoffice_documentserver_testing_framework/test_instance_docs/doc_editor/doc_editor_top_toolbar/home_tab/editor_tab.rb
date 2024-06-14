@@ -51,6 +51,8 @@ module OnlyofficeDocumentserverTestingFramework
       close_tooltips
     end
 
+    # Close tooltips
+    # @return [Nothing]
     def close_tooltips
       click_on_button(close_tooltip_xpath) while visible?(tooltip_xpath)
     end
