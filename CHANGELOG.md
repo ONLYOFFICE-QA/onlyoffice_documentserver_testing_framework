@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.17.0 (2024-06-18)
+
 ### Changes
 
 * Changes from `rubocop-1.63.2` update
