@@ -47,10 +47,27 @@ module OnlyofficeDocumentserverTestingFramework
     # rubocop disable to not change interface of public method
     # rubocop:disable Style/OptionalBooleanParameter
     def open(to_open = true)
-      return if to_open == active?
+      click if to_open != active?
+      close_tooltips
+    end
 
-      click
+    # Close tooltips
+    # @return [Nothing]
+    def close_tooltips
+      click_on_button(close_tooltip_xpath) while visible?(tooltip_xpath)
     end
     # rubocop:enable Style/OptionalBooleanParameter
+
+    private
+
+    # @return [String] xpath to tooltip
+    def tooltip_xpath
+      "//div[contains(@class, 'synch-tip-root')]"
+    end
+
+    # @return [String] xpath to close button in tooltip
+    def close_tooltip_xpath
+      "#{tooltip_xpath}//div[@class = 'close']"
+    end
   end
 end

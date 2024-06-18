@@ -6,6 +6,7 @@
 
 * Changes from `rubocop-1.63.2` update
 * Fix `rubocop-1.64` cop `Style/SuperArguments` warnings.
+* Add closing tooltips when open editor tab
 
 ## 2.16.0 (2024-02-21)
 
