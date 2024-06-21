@@ -6,6 +6,10 @@
 
 * Add language list for DocumentServer v8.1
 
+### Tests
+
+* Increase test coverage for `DocumentServerVersion#supported_languages`
+
 ## 2.17.0 (2024-06-18)
 
 ### Changes
