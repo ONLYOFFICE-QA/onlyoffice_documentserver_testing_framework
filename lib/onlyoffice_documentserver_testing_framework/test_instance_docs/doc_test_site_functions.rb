@@ -230,23 +230,26 @@ class DocTestSiteFunctions
   # @param [DocumentServerVersion] version of server
   # @return [Array<String>] list of supported languages
   def self.supported_languages(version = OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(8, 1, 0))
-    file = if version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(8, 1)
-             'doc_test_site_languages_after_8_1.list'
-           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(8, 0)
-             'doc_test_site_languages_after_8_0.list'
-           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 4)
-             'doc_test_site_languages_after_7_4.list'
-           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 3)
-             'doc_test_site_languages_after_7_3.list'
-           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 2)
-             'doc_test_site_languages_after_7_2.list'
-           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(7, 1)
-             'doc_test_site_languages_after_7_1.list'
-           elsif version >= OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(6, 2)
-             'doc_test_site_languages_after_6_2.list'
-           else
-             'doc_test_site_languages_before_6_2.list'
-           end
+    version_class = OnlyofficeDocumentserverTestingFramework::DocumentServerVersion
+    version_mappings = [
+      [version_class.new(8, 1), 'doc_test_site_languages_after_8_1.list'],
+      [version_class.new(8, 0), 'doc_test_site_languages_after_8_0.list'],
+      [version_class.new(7, 4), 'doc_test_site_languages_after_7_4.list'],
+      [version_class.new(7, 3), 'doc_test_site_languages_after_7_3.list'],
+      [version_class.new(7, 2), 'doc_test_site_languages_after_7_2.list'],
+      [version_class.new(7, 1), 'doc_test_site_languages_after_7_1.list'],
+      [version_class.new(6, 2), 'doc_test_site_languages_after_6_2.list']
+    ]
+
+    file = 'doc_test_site_languages_before_6_2.list'
+
+    version_mappings.each do |ver, file_name|
+      if version >= ver
+        file = file_name
+        break
+      end
+    end
+
     File.readlines("#{File.expand_path('..', __dir__)}" \
                    '/test_instance_docs/doc_test_site_functions/' \
                    "languages_list/#{file}")
