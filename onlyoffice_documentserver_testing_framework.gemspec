@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   }
   s.email = ['shockwavenn@gmail.com']
   s.files = Dir['lib/**/*']
-  s.add_runtime_dependency('onlyoffice_logger_helper', '~> 1')
-  s.add_runtime_dependency('onlyoffice_webdriver_wrapper', '~> 1', '>= 1.10.0')
+  s.add_dependency('onlyoffice_logger_helper', '~> 1')
+  s.add_dependency('onlyoffice_webdriver_wrapper', '~> 1', '>= 1.10.0')
   s.license = 'AGPL-3.0'
 end
