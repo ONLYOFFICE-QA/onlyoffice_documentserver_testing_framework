@@ -68,7 +68,7 @@ GEM
     page_navigation (0.10)
       data_magic (>= 0.22)
     parallel (1.25.1)
-    parser (3.3.4.0)
+    parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
     racc (1.8.1)
