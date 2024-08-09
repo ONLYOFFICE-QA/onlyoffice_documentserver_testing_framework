@@ -4,7 +4,7 @@ on:
 jobs:
   yamllint:
     name: Yamllint
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
       - name: Yamllint
@@ -15,7 +15,7 @@ jobs:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   markdownlint:
     name: markdownlint
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

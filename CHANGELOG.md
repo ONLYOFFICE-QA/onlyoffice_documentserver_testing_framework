@@ -7,6 +7,7 @@
 * Add language list for DocumentServer v8.1
 * Simplify `DocumentServerVersion#supported_languages` method
 * Fix `rubocop-1.65.0` cop `Gemspec/AddRuntimeDependency`
+* Allow any CI job run on either GitHub-hosted runner, or self-hosted
 
 ### Tests
 
