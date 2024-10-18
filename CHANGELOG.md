@@ -6,6 +6,7 @@
 
 * Add language list for DocumentServer v8.1
 * Add language list for DocumentServer v8.2
+* Adapt fill-forms tests to DocumentServer v8.2
 * Simplify `DocumentServerVersion#supported_languages` method
 * Fix `rubocop-1.65.0` cop `Gemspec/AddRuntimeDependency`
 
