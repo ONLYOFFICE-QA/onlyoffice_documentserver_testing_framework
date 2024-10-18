@@ -18,7 +18,7 @@ describe DocTestSiteFunctions,
     expect(fill_form_url).to be_nil
   end
 
-  it 'fill form url is none for pdf file' do
+  it 'PDF file have correct fill form mode paramter in URL' do
     instance.doc_test_functions.upload_file("#{Dir.pwd}/spec/data/sample.pdf")
     instance.doc_test_functions.reload
     fill_form_url = instance.doc_test_functions.uploaded_file_list[0].fill_forms_mode_url
