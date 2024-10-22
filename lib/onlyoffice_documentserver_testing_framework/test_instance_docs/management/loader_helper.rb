@@ -32,6 +32,10 @@ module OnlyofficeDocumentserverTestingFramework
                     .gsub('px', '').to_i.positive?
 
       error = selenium_functions(:get_text, "#{alert_xpath}/div[2]/div[1]/div[2]/span").tr("\n", ' ')
+      if error.include?('There are one or more circular references')
+        click_on_button("#{@alert_dialog_xpath}//button[@result='ok']")
+        return nil
+      end
       "Server Error: #{error}"
     end
 
