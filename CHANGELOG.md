@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.18.0 (2024-10-23)
+
 ### Changes
 
 * Add language list for DocumentServer v8.1
