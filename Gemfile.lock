@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    onlyoffice_documentserver_testing_framework (2.18.0)
+    onlyoffice_documentserver_testing_framework (2.18.1)
       onlyoffice_logger_helper (~> 1)
       onlyoffice_webdriver_wrapper (~> 1, >= 1.10.0)
 
@@ -150,4 +150,4 @@ DEPENDENCIES
   yard (>= 0.9.20)
 
 BUNDLED WITH
-   2.5.22
+   2.5.23
