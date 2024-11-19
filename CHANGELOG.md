@@ -3,6 +3,7 @@
 ## master (unreleased)
 
 ### Changes
+
 * Add new error to ignored list
 
 ## 2.18.0 (2024-10-23)
