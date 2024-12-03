@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Add closing tooltips when open file
+
 ## 2.18.1 (2024-11-19)
 
 ### Changes

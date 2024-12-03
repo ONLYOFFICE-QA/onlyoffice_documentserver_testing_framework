@@ -3,6 +3,7 @@
 require_relative 'management/loader_helper'
 require_relative 'management/manager_messages_checker'
 require_relative 'management/password_protected_helper'
+require_relative 'management/tooltip_helper'
 require_relative 'management/update_links_helper'
 module OnlyofficeDocumentserverTestingFramework
   # Class for management main methods
@@ -11,6 +12,7 @@ module OnlyofficeDocumentserverTestingFramework
     include ManagerMessagesChecker
     include LoaderHelper
     include PasswordProtectedHelper
+    include TooltipHelper
     include UpdateLinksHelper
 
     # @return [Integer] count of iframes to go into
@@ -147,6 +149,7 @@ module OnlyofficeDocumentserverTestingFramework
 
       @instance.selenium.execute_javascript('window.onbeforeunload = null') # OFF POPUP WINDOW
       @instance.selenium.select_top_frame
+      close_tooltips
       add_error_handler
       sleep(options.fetch(:additional_wait, 0))
       result
