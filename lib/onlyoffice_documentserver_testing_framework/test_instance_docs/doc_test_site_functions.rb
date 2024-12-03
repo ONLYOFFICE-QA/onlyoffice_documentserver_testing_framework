@@ -98,9 +98,7 @@ class DocTestSiteFunctions
       OnlyofficeLoggerHelper.log("Waiting for file conversion for #{current_time} seconds")
       return true if @instance.selenium.get_attribute(@xpath_conversion_step, 'class').include?('done')
 
-      if @instance.selenium.element_visible?(xpath_input_password)
-        handle_password_protection(@instance.management.password)
-      end
+      handle_password_protection(@instance.management.password) if @instance.selenium.element_visible?(xpath_input_password)
       sleep 1
       check_error
     end

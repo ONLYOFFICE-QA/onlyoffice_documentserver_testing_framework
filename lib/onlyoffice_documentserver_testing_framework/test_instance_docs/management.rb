@@ -123,9 +123,7 @@ module OnlyofficeDocumentserverTestingFramework
         handle_alert_dialog
         handle_password_protection(password)
         @instance.selenium.select_top_frame
-        if permission_denied_message?
-          @instance.selenium.webdriver_error('There is not enough access rights for document')
-        end
+        @instance.selenium.webdriver_error('There is not enough access rights for document') if permission_denied_message?
         @instance.selenium.webdriver_error('The required file was not found') if file_not_found_message?
       end
 
