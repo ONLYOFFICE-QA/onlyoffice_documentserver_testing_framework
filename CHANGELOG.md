@@ -2,6 +2,14 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Add `ruby-3.4` to CI
+
+### Changes
+
+* Remove `ruby-3.0` from CI, since it's EOLed
+
 ## 2.18.1 (2024-11-19)
 
 ### Changes
