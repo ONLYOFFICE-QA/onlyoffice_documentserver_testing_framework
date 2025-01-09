@@ -5,7 +5,7 @@ module OnlyofficeDocumentserverTestingFramework
   module UpdateLinksHelper
     # @return [String] xpath of update links message
     def update_links_message_xpath
-      '//span[contains(text(), "This workbook contains links to one or more external sources")]'
+      '//span[contains(text(), "This workbook contains links to")]'
     end
 
     # @return [String] xpath of update button

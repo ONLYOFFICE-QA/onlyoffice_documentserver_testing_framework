@@ -9,6 +9,7 @@
 ### Changes
 
 * Remove `ruby-3.0` from CI, since it's EOLed
+* Fix text of update links message
 
 ## 2.18.1 (2024-11-19)
 
