@@ -67,7 +67,7 @@ module OnlyofficeDocumentserverTestingFramework
 
     # @return [String] xpath to close button in tooltip
     def close_tooltip_xpath
-      "#{tooltip_xpath}//div[@class = 'btn-div']"
+      "#{tooltip_xpath}//div[@class = 'btn-div' or @class = 'close']"
     end
   end
 end
