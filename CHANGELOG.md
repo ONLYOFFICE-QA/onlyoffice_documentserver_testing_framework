@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.19.2 (2025-01-28)
+
 ### Changes
 
 * Fix xpath to close different type of tooltips
