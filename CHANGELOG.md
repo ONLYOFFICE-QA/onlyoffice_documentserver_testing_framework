@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.19.1 (2025-01-28)
+
 ### Changes
 
 * Fix xpath for closing tooltips when open editor tab
