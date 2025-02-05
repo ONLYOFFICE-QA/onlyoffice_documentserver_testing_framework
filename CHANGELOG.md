@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Add new errors to ignored list
+
 ## 2.19.2 (2025-01-28)
 
 ### Changes

@@ -31,3 +31,5 @@ UserControls/Management
 clientscript/
 was loaded over an insecure connection. This file should be served over HTTPS.
 https://www.googletagmanager.com/
+wasm streaming compile failed
+falling back to ArrayBuffer instantiation
