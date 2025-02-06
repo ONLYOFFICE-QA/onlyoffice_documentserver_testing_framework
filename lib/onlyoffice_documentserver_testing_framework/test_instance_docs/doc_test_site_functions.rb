@@ -229,9 +229,10 @@ class DocTestSiteFunctions
 
   # @param [DocumentServerVersion] version of server
   # @return [Array<String>] list of supported languages
-  def self.supported_languages(version = OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(8, 2, 0))
+  def self.supported_languages(version = OnlyofficeDocumentserverTestingFramework::DocumentServerVersion.new(8, 3, 0))
     version_class = OnlyofficeDocumentserverTestingFramework::DocumentServerVersion
     version_mappings = [
+      [version_class.new(8, 2), 'doc_test_site_languages_after_8_3.list'],
       [version_class.new(8, 2), 'doc_test_site_languages_after_8_2.list'],
       [version_class.new(8, 1), 'doc_test_site_languages_after_8_1.list'],
       [version_class.new(8, 0), 'doc_test_site_languages_after_8_0.list'],
