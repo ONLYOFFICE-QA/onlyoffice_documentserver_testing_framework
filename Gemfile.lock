@@ -52,7 +52,7 @@ GEM
       aws-sdk-s3 (~> 1)
       base64 (~> 0)
       onlyoffice_file_helper (< 3)
-    onlyoffice_webdriver_wrapper (1.33.0)
+    onlyoffice_webdriver_wrapper (1.35.0)
       headless (~> 2)
       onlyoffice_file_helper (< 3)
       onlyoffice_logger_helper (~> 1)
