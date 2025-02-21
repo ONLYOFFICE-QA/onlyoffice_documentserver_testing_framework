@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Fixes
+
+* Run `rubocop` in CI through `bundle exec`
+
 ## 2.20.0 (2025-02-06)
 
 ### Changes
