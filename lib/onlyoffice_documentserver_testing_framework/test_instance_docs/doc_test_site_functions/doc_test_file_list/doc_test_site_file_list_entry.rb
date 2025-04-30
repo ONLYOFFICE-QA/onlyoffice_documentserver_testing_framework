@@ -45,6 +45,8 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on review mode
   def fetch_review_mode_url
+    return nil if editors_modes_empty?
+
     xpath_review = "#{@xpath_line}/td[#{@edit_modes_indexes[:review_mode]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_review)
 
@@ -55,6 +57,8 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on review mode
   def fetch_comment_mode_url
+    return nil if editors_modes_empty?
+
     xpath_comment = "#{@xpath_line}/td[#{@edit_modes_indexes[:comment_mode]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_comment)
 
@@ -65,6 +69,8 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on fill forms mode
   def fetch_fill_forms_mode_url
+    return nil if editors_modes_empty?
+
     xpath_comment = "#{@xpath_line}/td[#{@edit_modes_indexes[:fill_forms]}]/a"
     return nil unless @instance.selenium.element_present?(xpath_comment)
 
@@ -75,6 +81,8 @@ class DocTestSiteFileListEntry
 
   # @return [String] url on fill forms mode
   def fetch_only_fill_forms_mode_url
+    return nil if editors_modes_empty?
+
     link_xpath = "#{@xpath_line}/td[#{@edit_modes_indexes[:only_fill_forms]}]/a"
     return nil unless @instance.selenium.element_present?(link_xpath)
 
@@ -101,5 +109,12 @@ class DocTestSiteFileListEntry
     url = @instance.selenium.get_attribute(xpath_embedded, 'href')
     OnlyofficeLoggerHelper.log("Got embedded #{@xpath_line} url: #{url}")
     url
+  end
+
+  # @return [True, False] if editors modes are empty
+  def editors_modes_empty?
+    empty = @instance.selenium.get_attribute("#{@xpath_line}/td[2]", 'class').include?('contentCellsEmpty')
+    OnlyofficeLoggerHelper.log("Editors modes empty?: #{empty}")
+    empty
   end
 end
