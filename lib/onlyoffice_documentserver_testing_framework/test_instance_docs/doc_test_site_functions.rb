@@ -264,9 +264,9 @@ class DocTestSiteFunctions
   # @return [Hash] name with index
   def default_modes_indexes
     {
-      comment_mode: 2,
-      review_mode: 4,
-      fill_forms: 6,
+      comment_mode: 4,
+      review_mode: 5,
+      fill_forms: 7,
       view_mode: 8,
       embedded: 10
     }
