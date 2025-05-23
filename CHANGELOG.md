@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 2.21.0 (2025-05-23)
+
 ### Changes
 
 * Actualize methods for file opening modes for DocumentServer v9.0
