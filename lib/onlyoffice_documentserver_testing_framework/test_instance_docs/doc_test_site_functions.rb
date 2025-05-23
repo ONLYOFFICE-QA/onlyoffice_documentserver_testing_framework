@@ -107,12 +107,20 @@ class DocTestSiteFunctions
     @instance.selenium.webdriver_error('File not finished for conversion for 100 seconds')
   end
 
+  # Checks if Loading editor scripts step of file upload is present
+  # @return [Nothing]
+  def final_loading_step_xpath
+    return @xpath_editor_scripts_step if @instance.selenium.element_visible?(@xpath_editor_scripts_step)
+
+    @xpath_conversion_step
+  end
+
   # Waits until scripts loads
   # @return [Nothing]
   def wait_loading_scripts
     100.times do |current_time|
       OnlyofficeLoggerHelper.log("Waiting for editors scripts load for #{current_time} seconds")
-      return true if @instance.selenium.get_attribute(@xpath_editor_scripts_step, 'class').include?('done')
+      return true if @instance.selenium.get_attribute(final_loading_step_xpath, 'class').include?('done')
 
       sleep 1
       check_error
