@@ -5,6 +5,7 @@
 ### Changes
 
 * Actualize methods for file opening modes for DocumentServer v9.0
+* Actualize file loading for DocumentServer v9.0
 
 ### Fixes
 
@@ -15,6 +16,7 @@
 ### Changes
 
 * Add new errors to ignored list
+* Add language list for DocumentServer v8.3
 
 ## 2.19.2 (2025-01-28)
 
