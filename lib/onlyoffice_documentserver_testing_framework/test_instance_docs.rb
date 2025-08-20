@@ -10,6 +10,8 @@ require_relative 'test_instance_docs/presentation_editor'
 require_relative 'test_instance_docs/spreadsheet_editor'
 require_relative 'test_instance_docs/management'
 
+require_relative 'project_helpers/selenium/page_object/check_box'
+
 module OnlyofficeDocumentserverTestingFramework
   # Main class for browser instance
   class TestInstanceDocs
